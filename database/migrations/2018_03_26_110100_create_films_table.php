@@ -20,10 +20,10 @@ class CreateFilmsTable extends Migration
             $table->text('description');
             $table->string('img_path',255);
             $table->string('trailer_path',255)->nullable();
-            $table->integer('length');
+            $table->integer('length')->nullable();
             $table->float('avg_rate');
-            $table->string('mat_rate',128);
-            $table->integer('view_count')->default(0);
+            $table->string('mat_rate',128)->nullable();
+            $table->double('popular')->default(0);
         });
     }
 

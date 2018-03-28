@@ -16,11 +16,11 @@ class CreateCelebsTable extends Migration
         Schema::create('celebs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',255);
-            $table->date('dob');
-            $table->string('pob',255);
+            $table->string('dob',128)->nullable();
+            $table->string('pob',255)->nullable();
             $table->tinyInteger('gender')->default(1);
-            $table->string('img_path',255);
-            $table->text('bio');
+            $table->string('img_path',255)->nullable();
+            $table->text('bio')->nullable();
 //            $table->timestamps();
         });
     }
