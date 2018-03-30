@@ -243,6 +243,8 @@ header {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    transition: height 500ms, background 500ms;
+
 }
 
 header .header-content {
@@ -326,6 +328,11 @@ header ul li.discover{
 div.search_bar{
     background-color: #ffffff;
     margin-top:110px;
+    width: 100%;
+}
+.search_bar.tiny{
+    background-color: #ffffff;
+    margin-top:60px;
 }
 div.search_bar input{
     width:100%;
