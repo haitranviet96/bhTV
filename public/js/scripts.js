@@ -31,33 +31,8 @@
        $('#galleryImage').attr("src",$(e.relatedTarget).data("src"));
     });
 
-
-    $(function(){
-        $('#topNav').data('size','big');
-    });
-
-    $(window).scroll(function(){
-        if($(document).scrollTop() > 0)
-        {
-            if($('#topNav').data('size') == 'big')
-            {
-                $('#topNav').data('size','small');
-                $('#topNav').stop().animate({
-                    height:'40px'
-                },600);
-                $('.search_bar').toggleClass("tiny");
-            }
-        }
-        else
-        {
-            if($('#topNav').data('size') == 'small')
-            {
-                $('#topNav').data('size','big');
-                $('#topNav').stop().animate({
-                    height:'100px'
-                },600);
-            }
-            $('.search_bar').toggleClass("tiny");
-        }
+    
+    $(window).on("scroll touchmove", function () {
+        $('.search_bar').toggleClass('tiny', $(document).scrollTop() > 0);
     });
 })(jQuery);
