@@ -47,8 +47,8 @@
                                     <input id="email" type="email"
                                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                            name="email" placeholder="Email"
-                                           value="@if(isset($email)) {{$email}} @else {{ old('email') }} @endif" required>
-
+                                           value="@if(isset($email)) {{$email}} @else {{ old('email') }} @endif"
+                                           required>
                                     @if ($errors->has('email'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>

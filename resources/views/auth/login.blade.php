@@ -16,13 +16,10 @@
                             @csrf
 
                             <div class="form-group row">
-
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                           name="email" placeholder="E-Mail Address" value="{{ old('email') }}" required
-                                           autofocus>
-
+                                           name="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
                                     @if ($errors->has('email'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -30,9 +27,7 @@
                                     @endif
                                 </div>
                             </div>
-
                             <div class="form-group row">
-
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                            class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
@@ -73,9 +68,7 @@
                 </div>
             </div>
             <div id="oa_social_login_container"></div>
-
             <script type="text/javascript">
-
                 /* Replace #your_callback_uri# with the url to your own callback script */
                 var your_callback_script = 'http://bhTV.com/callback';
 
@@ -84,9 +77,7 @@
                 _oneall.push(['social_login', 'set_providers', ['facebook', 'google', 'twitter']]);
                 _oneall.push(['social_login', 'set_callback_uri', your_callback_script]);
                 _oneall.push(['social_login', 'do_render_ui', 'oa_social_login_container']);
-
             </script>
-
         </div>
 </section>
 @endsection

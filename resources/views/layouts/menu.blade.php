@@ -33,14 +33,6 @@
                         <a class="page-scroll people" href="">People</a>
                     </li>
                 </ul>
-                <!--                <ul class="nav navbar-nav navbar-right">-->
-                <!--                    <li class="discover">-->
-                <!--                        <a class="page-scroll" data-toggle="modal" title="Login to your account" href="/login">Login</a>-->
-                <!--                    </li>-->
-                <!--                    <li class="discover">-->
-                <!--                        <a class="page-scroll" data-toggle="modal" title="Create a new account for free" href="/register">Sign Up</a>-->
-                <!--                    </li>-->
-                <!--                </ul>-->
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right ml-auto">
@@ -75,7 +67,6 @@
                     </li>
                     @endguest
                 </ul>
-
                 <div class="search_bar">
                     <div class="sub_media">
                         <form id="search_form" action="/search" method="get" accept-charset="utf-8">
@@ -84,9 +75,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </nav>
-
 </header>
