@@ -33,7 +33,6 @@
                         <a class="page-scroll people" href="">People</a>
                     </li>
                 </ul>
-
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right ml-auto">
                     <!-- Authentication Links -->
@@ -67,6 +66,7 @@
                     </li>
                     @endguest
                 </ul>
+
                 <div class="search_bar">
                     <div class="sub_media">
                         <form id="search_form" action="/search" method="get" accept-charset="utf-8">
