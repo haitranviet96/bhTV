@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="./css/animate.min.css"/>
     <link rel="stylesheet" href="./css/ionicons.min.css"/>
     <link rel="stylesheet" href="./css/styles.css"/>
+    <script type="text/javascript">
+
+        /* Replace #your_subdomain# by the subdomain of a Site in your OneAll account */
+        var oneall_subdomain = 'bhtv-999';
+
+        /* The library is loaded asynchronously */
+        var oa = document.createElement('script');
+        oa.type = 'text/javascript'; oa.async = true;
+        oa.src = '//' + oneall_subdomain + '.api.oneall.com/socialize/library.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(oa, s);
+
+    </script>
 </head>
 <body>
 @include('layouts.menu')
