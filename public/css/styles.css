@@ -243,8 +243,9 @@ header {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    transition: height 500ms, background 500ms;
-
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
 }
 
 header .header-content {
@@ -329,10 +330,16 @@ div.search_bar{
     background-color: #ffffff;
     margin-top:110px;
     width: 100%;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
 }
 .search_bar.tiny{
     background-color: #ffffff;
     margin-top:60px;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
 }
 div.search_bar input{
     width:100%;
