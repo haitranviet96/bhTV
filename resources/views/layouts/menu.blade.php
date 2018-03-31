@@ -32,21 +32,50 @@
                     <li>
                         <a class="page-scroll people" href="">People</a>
                     </li>
-                    {{--<li>--}}
-                        {{--<a class="page-scroll" href="#four">Features</a>--}}
-                        {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a class="page-scroll" href="#last">Contact</a>--}}
-                        {{--</li>--}}
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <!--                <ul class="nav navbar-nav navbar-right">-->
+                <!--                    <li class="discover">-->
+                <!--                        <a class="page-scroll" data-toggle="modal" title="Login to your account" href="/login">Login</a>-->
+                <!--                    </li>-->
+                <!--                    <li class="discover">-->
+                <!--                        <a class="page-scroll" data-toggle="modal" title="Create a new account for free" href="/register">Sign Up</a>-->
+                <!--                    </li>-->
+                <!--                </ul>-->
+
+                <!-- Right Side Of Navbar -->
+                <ul class="nav navbar-nav navbar-right ml-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                    <li class="discover"><a class="page-scroll" data-toggle="modal" title="Login to your account"
+                                            href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                    <li class="discover"><a class="page-scroll" data-toggle="modal"
+                                            title="Create a new account for free" href="{{ route('register') }}">{{
+                            __('Register') }}</a></li>
+                    @else
                     <li class="discover">
-                        <a class="page-scroll" data-toggle="modal" title="Login to your account" href="/login">Login</a>
+                        <a id="navbarDropdown" class="page-scroll" href="#" role="button" data-toggle="modal"
+                           aria-haspopup="true" aria-expanded="false" v-pre>
+                            <span class="ion-ios-person"></span> {{ Auth::user()->name }}
+                        </a>
+
+                        <ul class="sub_menu_discover">
+                            <li><a class="page-scroll" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                            </li>
+                            <li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="discover">
-                        <a class="page-scroll" data-toggle="modal" title="Create a new account for free" href="/register">Sign Up</a>
-                    </li>
+                    @endguest
                 </ul>
+
                 <div class="search_bar">
                     <div class="sub_media">
                         <form id="search_form" action="/search" method="get" accept-charset="utf-8">

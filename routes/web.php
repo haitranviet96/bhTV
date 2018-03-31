@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/callback', 'CallbackController@handleCallback');
+Route::post('/callback', 'CallbackController@handleCallback');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
