@@ -31,7 +31,7 @@
        $('#galleryImage').attr("src",$(e.relatedTarget).data("src"));
     });
 
-    
+
     $(window).on("scroll touchmove", function () {
         $('.search_bar').toggleClass('tiny', $(document).scrollTop() > 0);
     });
