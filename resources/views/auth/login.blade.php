@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="bg-primary">
+<section class="bg-secondary">
     <div class="container">
         <div class="row justify-content-center">
             <h2 class="margin-top-1 text-primary">Login</h2>
@@ -16,13 +16,12 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address')
-                                    }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                           name="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
+                                           name="email" placeholder="E-Mail Address" value="{{ old('email') }}" required
+                                           autofocus>
 
                                     @if ($errors->has('email'))
                                     <span class="invalid-feedback">
@@ -33,8 +32,6 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password')
-                                    }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -53,8 +50,8 @@
                                 <div class="col-md-6 offset-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''
-                                            }}> {{ __('Remember Me') }}
+                                            <input type="checkbox" name="remember"
+                                                   {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
                                         </label>
                                     </div>
                                 </div>
@@ -75,6 +72,21 @@
                     </div>
                 </div>
             </div>
+            <div id="oa_social_login_container"></div>
+
+            <script type="text/javascript">
+
+                /* Replace #your_callback_uri# with the url to your own callback script */
+                var your_callback_script = 'http://bhTV.com/callback';
+
+                /* Embeds the buttons into the container oa_social_login_container */
+                var _oneall = _oneall || [];
+                _oneall.push(['social_login', 'set_providers', ['facebook', 'google', 'twitter']]);
+                _oneall.push(['social_login', 'set_callback_uri', your_callback_script]);
+                _oneall.push(['social_login', 'do_render_ui', 'oa_social_login_container']);
+
+            </script>
+
         </div>
 </section>
 @endsection
