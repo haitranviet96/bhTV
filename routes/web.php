@@ -21,3 +21,4 @@ Route::post('/callback', 'CallbackController@handleCallback');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/search', 'SearchController@test');
