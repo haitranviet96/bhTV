@@ -20,18 +20,7 @@
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-3 column">
-                <h4>Stay Posted</h4>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" title="No spam, we promise!"
-                               placeholder="Tell us your email">
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#alertModal" type="button">
-                            Subscribe for updates
-                        </button>
-                    </div>
-                </form>
+
             </div>
             <div class="col-xs-12 col-sm-3 text-right">
                 <h4>Follow</h4>
@@ -48,7 +37,7 @@
         </div>
         <br/>
         <span class="pull-right text-muted small"><a
-                    href="http://www.bootstrapzero.com">Landing Zero by BootstrapZero</a> ©2015 Company</span>
+                    href="/">bhTV by bhTVCorp.</a> ©2018 Company</span>
     </div>
 </footer>
 <div id="galleryModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">

@@ -63,6 +63,15 @@ class DatabaseSeeder extends Seeder
             }
 //            echo "Film count : " . count($moviesIDs);
         }
+
+        $user = new UserTableSeeder();
+        $user->run();
+
+        $comment = new CommentTableSeeder;
+        $comment->run();
+
+        $rate = new RatesTableSeeder();
+        $rate->run();
     }
 
     private function requestMovies(Psr\Http\Message\ResponseInterface $res, $genre = NULL)
@@ -94,6 +103,7 @@ class DatabaseSeeder extends Seeder
 
     private function addMovie($movieId)
     {
+        // get movie detail
         do {
             $res = $this->client->get('movie/' . $movieId . '?api_key=' . $this->apiKey . '&language=en-US');
             $status = $res->getStatusCode();
@@ -101,13 +111,31 @@ class DatabaseSeeder extends Seeder
         } while ($status != 200);
         $movieNewId = -1;
         $movieDetail = json_decode($res->getBody(), true);
+
+        // get release_date
         do {
             $res = $this->client->get('movie/' . $movieId . '/release_dates?api_key=' . $this->apiKey . '&language=en-US');
             $status = $res->getStatusCode();
             if ($status != 200) echo "Network Error: " . $status . "\n";
         } while ($status != 200);
-        $results = json_decode($res->getBody(), true)['results'];
-        foreach ($results as $result) {
+
+        // get trailer
+        $release_results = json_decode($res->getBody(), true)['results'];
+        do {
+            $res = $this->client->get('movie/' . $movieId . '/videos?api_key=' . $this->apiKey . '&language=en-US');
+            $status = $res->getStatusCode();
+            if ($status != 200) echo "Network Error: " . $status . "\n";
+        } while ($status != 200);
+        $video_results = json_decode($res->getBody(), true)['results'];
+        foreach ($video_results as $video){
+            if($video['type'] == 'Trailer'){
+                $trailer_key = $video['key'];
+                break;
+            }
+        }
+
+        // add movie
+        foreach ($release_results as $result) {
             if ($result['iso_3166_1'] == "US") {
                 $mat_rate = $result['release_dates'][0]['certification'];
                 $movieNewId = DB::table('films')
@@ -115,6 +143,7 @@ class DatabaseSeeder extends Seeder
                         'released_date' => $movieDetail['release_date'],
                         'description' => $movieDetail['overview'],
                         'img_path' => $this->getImgPath($movieDetail['poster_path']),
+                        'trailer_path' => isset($trailer_key) ? $this->getTrailerPath($trailer_key) : NULL,
                         'length' => $movieDetail['runtime'],
                         'avg_rate' => $movieDetail['vote_average'],
                         'mat_rate' => $mat_rate,
@@ -202,5 +231,10 @@ class DatabaseSeeder extends Seeder
     private function getImgPath($string)
     {
         return 'https://image.tmdb.org/t/p/w500' . $string;
+    }
+
+    private function getTrailerPath($id)
+    {
+        return 'https://www.youtube.com/watch?v=' . $id;
     }
 }

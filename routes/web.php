@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@welcome');
 
 Route::get('/callback', 'CallbackController@handleCallback');
 Route::post('/callback', 'CallbackController@handleCallback');
@@ -21,3 +19,5 @@ Route::post('/callback', 'CallbackController@handleCallback');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/discover', 'DiscoverController@index');
