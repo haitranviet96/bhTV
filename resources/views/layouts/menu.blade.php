@@ -13,10 +13,9 @@
             <div class="navbar-collapse collapse" id="bs-navbar">
                 <ul class="nav navbar-nav">
                     <li class="discover">
-                        <a class="page-scroll" href="">Discover</a>
+                        <a class="page-scroll" href="/discover">Discover</a>
                         <ul class="sub_menu_discover">
-                            <li><a class="page-scroll" href="">Movies</a></li>
-                            <li><a class="page-scroll" href="">TV Shows</a></li>
+                            <li><a class="page-scroll" href="/discover">Movies</a></li>
                         </ul>
                     </li>
                     <li class="discover">

@@ -51,9 +51,9 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-    font-size: 23px;
-    line-height: 1.7;
-    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1;
+    margin-bottom: 10px;
 }
 
 .wide-space {
@@ -92,7 +92,7 @@ p {
 }
 
 .text-primary {
-    color: #9c27b0;
+    color: #00ffff;
 }
 
 .modal-content {
@@ -371,23 +371,40 @@ div.sub_media{
     display: inline-block;
 }
 
+.text
+{
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    display: block;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 0px;
+    left: 16px;
+}
+
 .info-first{
+    position: relative;
     float: left;
     width: 500px;
-    height: 281px;
+    max-height: 300px;
+    overflow: hidden;
 }
 
 .info-second {
+    position: relative;
     float: left;
     width:250px;
-    height: 141px;
+    height: 150px;
     display: inline-block;
     overflow: hidden;
 }
 .info-third {
+    position: relative;
     float: left;
     width:250px;
-    height: 141px;
+    height: 150px;
     display: inline-block;
     overflow: hidden;
 }
