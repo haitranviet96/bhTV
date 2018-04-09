@@ -21,3 +21,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/discover', 'DiscoverController@index');
+
+Route::get('/movie/popular', 'MovieController@popular');
+Route::get('/movie/top_rated', 'MovieController@topRated');
+Route::get('/movie/up_coming', 'MovieController@upComing');
+Route::get('/movie/now_playing', 'MovieController@nowPlaying');
+
+Route::get('/people', 'PeopleController@people');

@@ -7,10 +7,10 @@
           content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Codeply">
-    <link rel="stylesheet" href="./css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="./css/animate.min.css"/>
-    <link rel="stylesheet" href="./css/ionicons.min.css"/>
-    <link rel="stylesheet" href="./css/styles.css"/>
+    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('css/animate.min.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('css/ionicons.min.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}"/>
     <script type="text/javascript">
 
         /* Replace #your_subdomain# by the subdomain of a Site in your OneAll account */
@@ -35,10 +35,10 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="./js/jquery.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
-<script src="./js/jquery.easing.min.js"></script>
-<script src="./js/wow.js"></script>
-<script src="./js/scripts.js"></script>
+<script src="{{ URL::asset('js/jquery.min.js') }}"></script>
+<script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('js/jquery.easing.min.js') }}"></script>
+<script src="{{ URL::asset('js/wow.js') }}"></script>
+<script src="{{ URL::asset('js/scripts.js') }}"></script>
 </body>
 </html>

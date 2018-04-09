@@ -410,11 +410,11 @@ div.sub_media{
 }
 #video-background {
   position: absolute;
-  right: 0; 
+  right: 0;
   bottom: 0;
-  min-width: 100%; 
+  min-width: 100%;
   min-height: 100%;
-  width: auto; 
+  width: auto;
   height: auto;
   z-index: 1;
 }
@@ -431,7 +431,7 @@ footer {
     .icon-lg {
         font-size: 100px;
     }
-    
+
     header {
         /*min-height: 10%;*/
     }
@@ -461,7 +461,7 @@ footer {
         max-width: 80%;
         font-size: 22px;
     }
-    
+
     section {
         min-height: 600px;
         padding: 100px 0;
@@ -499,7 +499,8 @@ textarea {
     margin-top: 0;
 }
 .margin-top-1 {
-    margin-top: 70px;
+    margin-top: 90px;
+    margin-bottom: 30px;
 }
 .feature {
     margin: 50px auto 0;
@@ -672,3 +673,32 @@ img::-moz-selection {
     background: 0 0;
 }
 
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    float: left;
+}
+.rating > span {
+    color: #fff000;
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
+}
+
+.movie-item{
+    min-height: 300px;
+}
+
+.people-item{
+    min-height: 250px;
+}
+
+.search_element {
+    float: left;
+    padding-right: 30px;
+}

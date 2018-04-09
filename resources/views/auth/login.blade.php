@@ -8,7 +8,6 @@
     <div class="container">
         <div class="row justify-content-center">
             <h2 class="margin-top-1 text-primary">Login</h2>
-            <hr class="primary">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
