@@ -143,7 +143,7 @@ class DatabaseSeeder extends Seeder
                         'released_date' => $movieDetail['release_date'],
                         'description' => $movieDetail['overview'],
                         'img_path' => $this->getImgPath($movieDetail['poster_path']),
-                        'trailer_path' => isset($trailer_key) ? $this->getTrailerPath($trailer_key) : NULL,
+                        'trailer_path' =>isset($trailer_key) ? $this->getTrailerPath($trailer_key) : NULL,
                         'length' => $movieDetail['runtime'],
                         'avg_rate' => $movieDetail['vote_average'],
                         'mat_rate' => $mat_rate,
@@ -223,7 +223,7 @@ class DatabaseSeeder extends Seeder
                 'dob' => isset($celebDetail['birthday']) ? $celebDetail['birthday'] : null,
                 'pob' => isset($celebDetail['place_of_birth']) ? $celebDetail['place_of_birth'] : null,
                 'gender' => $celebDetail['gender'],
-                'img_path' => $this->getImgPath($celebDetail['profile_path']),
+                'img_path' => isset($celebDetail['profile_path']) ? $this->getImgPath($celebDetail['profile_path']) : null,
                 'bio' => $celebDetail['biography']]);
         return $celebNewId;
     }

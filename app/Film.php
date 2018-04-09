@@ -30,4 +30,13 @@ class Film extends Model
         return $this->belongsToMany('App\Celeb','director_film',
             'film_id','dir_id');
     }
+
+    /**
+     * The genres that belong to the film.
+     */
+    public function genres()
+    {
+        return $this->belongsToMany('App\Genre','genre_film',
+            'film_id','genre_id');
+    }
 }

@@ -15,8 +15,8 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Comment::class, function (Faker $faker) {
     return [
-        'user_id' => $faker->numberBetween(1,101),
-        'film_id' => $faker->numberBetween(1,243),
+        'user_id' => $faker->numberBetween(1,100),
+        'film_id' => $faker->numberBetween(1,240),
         'comment' => $faker->realText(100,1),
     ];
 });

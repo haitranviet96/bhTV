@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Film;
 use Illuminate\Http\Request;
 
 class DiscoverController extends Controller
@@ -13,6 +14,7 @@ class DiscoverController extends Controller
      */
     public function index()
     {
-        return view('discover');
+        $popular_films = Film::orderBy('popular', 'desc')->take(16)->get();
+        return view('movie/discover')->with(['films' => $popular_films]);
     }
 }
