@@ -5,7 +5,7 @@
 @section('content')
 <section class="bg-primary" id="popular">
     <div class="container">
-        <h2 class="margin-top-1 text-primary">Now Playing Movies</h2>
+        <h2 class="margin-top-1 margin-bottom-1 text-primary">Now Playing Movies</h2>
         @foreach($films as $film)
         <div class="col-sm-6 table-bordered movie-item">
             <div class="col-sm-4">
