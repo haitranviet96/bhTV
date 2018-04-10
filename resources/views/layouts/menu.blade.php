@@ -23,46 +23,7 @@
         margin: 0 auto;
     }
 </style>
-<?php
-if(isset($_GET['search'])){
-    $response = "<ul><li>No data found</li></ul>";
-    $connection = new mysqli('localhost', 'root','','homestead');
-    $q = $connection->real_escape_string($_GET['q']);
-    $sql = $connection->query("SELECT name, img_path FROM films WHERE name LIKE '%$q%' LIMIT 6");
-//    $data_get =\App\Film::where('name', '=','Black Panther')->take(10)->get();
-//    echo $data_get;
-    $response = "<ul id='ulSearch'>";
-    $response .= "<li class='sug_row' style='font-size: larger; font-weight: bold; font-style: italic; color: DarkGray'>".'Films'."</li>";
-    if($sql->num_rows > 0){
-        while($data = $sql->fetch_array())
-            $response .= "<li class='sug_row'><img src='{$data['img_path']}' class='img_sug'><a style='cursor: pointer;' href='https://google.com'>".$data['name']."</a></li>";
-    }
-    $sql = $connection->query("SELECT name, img_path FROM celebs WHERE name LIKE '%$q%' LIMIT 6");
-    $response .= "<li class='sug_row' style='font-size: larger; font-weight: bold; font-style: italic; color: DarkGray;' >".'Actors'."</li>";
-//    $respone .= "<li class='sug_row'> Actors </li>";
-    if($sql->num_rows > 0){
-        while($data = $sql->fetch_array())
-            $response .= "<li class='sug_row'><img src='{$data['img_path']}' class='img_sug'><a style='cursor: pointer;' href='https://google.com'>".$data['name']."</a></li>";
-    }
-    $response .= "</ul>";
 
-
-
-//    if($data_get.length > 0){
-//        $response = "<ul id='ulSearch'>";
-//        foreach ($data_get as $item){
-//            $response .= "<li class='sug_row'>
-//             <img src='http://www.html.am/images/samples/remarkables_queenstown_new_zealand-300x225.jpg' class='img_sug'>
-//<a style='cursor: pointer;' href='https://google.com'>".$data['name']."</a>
-//
-//</li>";
-//            $response .= "</ul>";
-//        }
-//    }
-
-    exit($response);
-}
-?>
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://zmp3-static.zadn.vn/skins/zmp3-v5.1/css/style-8.3.6.5.min.css" media="all" type="text/css">
@@ -171,7 +132,7 @@ if(isset($_GET['search'])){
                 $("#response").show();
                 $.ajax(
                     {
-                        url: currentLink,
+                        url: '/search',
                         method: 'GET',
                         data: {
                             search:1,
