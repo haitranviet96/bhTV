@@ -57,6 +57,7 @@ class MovieController extends Controller
         $film = Film::where('id', '=', ''.$id.'')->first();
 //        $film['released_date'] = date_format($film['released_date'],'Y-m-d');
 //        return gettype($film['released_date'].date());
+
         return view('movie/film_info')->with(['film' => $film]);
     }
 }

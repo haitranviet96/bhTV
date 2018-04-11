@@ -20,6 +20,7 @@ class SearchController extends Controller
             if($data_query->count() > 0){
                 foreach ($data_query as $data)
                     $response .= "<li class='sug_row'><img src='{$data->img_path}' class='img_sug'><a style='cursor: pointer;' href='/movie/{$data->id}'>".$data->name."</a></li>";
+
             }
             $data_query = Celeb::where('name', 'LIKE', '%'.$q.'%')->take(6)->get();
             $response .= "<li class='sug_row' style='font-size: larger; font-weight: bold; font-style: italic; color: DarkGray;' >".'Actors'."</li>";
