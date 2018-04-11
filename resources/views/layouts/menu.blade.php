@@ -1,34 +1,3 @@
-<style>
-    .sug_row:hover{
-        border: 1px solid blue;
-        cursor: pointer;
-    }
-
-    a, li{
-        text-decoration: none;
-    }
-
-    .img_sug {
-        width:30px;
-        height:30px;
-        border-width:3px;
-        border-color: #ffffff;
-        border-style:solid;
-        margin:5px;
-        float:left;
-    }
-
-    .search_bar{
-        width: 1000px;
-        margin: 0 auto;
-    }
-</style>
-
-<head>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="https://zmp3-static.zadn.vn/skins/zmp3-v5.1/css/style-8.3.6.5.min.css" media="all" type="text/css">
-
-</head>
 <header id="first">
     <nav id="topNav" class="navbar navbar-default navbar-fixed-top affix">
         <div class="container-fluid">
