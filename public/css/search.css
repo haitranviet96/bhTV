@@ -25,3 +25,23 @@
  a{
      text-decoration: none;
  }
+
+.search_bar{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/*the following one is used for the film info-page*/
+.img_bio_film{
+    display: block;
+    max-width:500px;
+    max-height:340px;
+    width: auto;
+    height: auto;
+    margin: auto ;
+}
+.highlight_text{
+    color: #66ccff;
+    font-weight: bold;
+    font-size: large;
+}
