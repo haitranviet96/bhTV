@@ -19,9 +19,12 @@
             <p class="highlight_text">Mature rate:</p>
             {{$film['mat_rate']}}<br>
         </div>
+        <div style="width: 40%; clear:both">
+            <p style="margin: auto">
+                This is spent for rating box
 
-
-        {{--<div style="width: 100%; height: 50%; background-color: red; clear:both">-</div>--}}
+            </p>
+        </div>
 
 
     </section>
