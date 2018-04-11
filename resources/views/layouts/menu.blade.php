@@ -27,7 +27,7 @@
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://zmp3-static.zadn.vn/skins/zmp3-v5.1/css/style-8.3.6.5.min.css" media="all" type="text/css">
-
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('css/search.css')}}">
 </head>
 <header id="first">
     <nav id="topNav" class="navbar navbar-default navbar-fixed-top affix">
@@ -160,4 +160,3 @@
         event.stopPropagation();
     })
 </script>
-<link rel="stylesheet" type="text/css" href="{{url('/css/search.css')}}">
