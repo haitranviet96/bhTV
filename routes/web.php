@@ -70,5 +70,8 @@ Route::get('/movie/popular', 'MovieController@popular');
 Route::get('/movie/top_rated', 'MovieController@topRated');
 Route::get('/movie/up_coming', 'MovieController@upComing');
 Route::get('/movie/now_playing', 'MovieController@nowPlaying');
+Route::get('/movie/film_info', function (){
+   return view('movie.film_info');
+});
 
 Route::get('/people', 'PeopleController@people');
