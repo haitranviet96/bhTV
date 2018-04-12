@@ -28,21 +28,19 @@
             datatType : 'json',
             type: 'POST',
             data: {
-                'id' : 'film',
-                'name': name,
-                'released_date' : released_date,
-                'description' : description,
-                'img' : img,
-                'trailer' : trailer,
-                'length' : length,
-                'rate' : rate,
-                'mat' : mat,
-                'directors' : directors,
-                'casts' : casts
+                id : 'film',
+                name: name,
+                released_date : released_date,
+                description : description,
+                img : img,
+                trailer : trailer,
+                length : length,
+                rate : rate,
+                mat : mat,
+                directors : directors,
+                casts : casts
             },
-            cache: false,
-            contentType: false,
-            processData: false,
+            contentType: "application/x-www-form-urlencoded",
 
             success:function(response) {
                 alert("Film "+name+" was successfully added to database!");
