@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="{{URL::asset('css/search.css')}}">
 <header id="first">
     <nav id="topNav" class="navbar navbar-default navbar-fixed-top affix">
         <div class="container-fluid">
@@ -129,4 +130,3 @@
         event.stopPropagation();
     })
 </script>
-<link rel="stylesheet" type="text/css" href="{{url('/css/search.css')}}">

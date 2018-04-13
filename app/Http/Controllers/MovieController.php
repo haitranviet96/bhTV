@@ -52,4 +52,12 @@ class MovieController extends Controller
             ->orderBy('released_date', 'desc')->take(16)->get();
         return view('movie/now_playing')->with(['films' => $now_playing_films]);
     }
+
+    public function filmInfo($id){
+        $film = Film::where('id', '=', ''.$id.'')->first();
+//        $film['released_date'] = date_format($film['released_date'],'Y-m-d');
+//        return gettype($film['released_date'].date());
+
+        return view('movie/film_info')->with(['film' => $film]);
+    }
 }
