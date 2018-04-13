@@ -27,7 +27,7 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form class="form-horizontal" action="{{route('addFilm')}}">
+                        <form class="form-horizontal">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="inputName3" class="col-sm-2 control-label">Name</label>
@@ -88,14 +88,14 @@
                                 <div class="form-group">
                                     <label for="inputDirector3" class="col-sm-2 control-label">Directors</label>
 
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-10" id="director3">
                                         <input type="text" class="form-control" id="inputDirector3" placeholder="Directors" name="director">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputCast3" class="col-sm-2 control-label">Casts</label>
 
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-10" id="cast3">
                                         <input type="text" class="form-control" id="inputCast3" placeholder="Cast" name="cast">
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                             <!-- /.box-body -->
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-default">Cancel</button>
-                                <button type="button" class="btn btn-info pull-right" id="submitChange">Save Changes</button>
+                                <button type="button" class="btn btn-info pull-right" id="addSubmitChange">Save Changes</button>
                             </div>
                             <!-- /.box-footer -->
                         </form>

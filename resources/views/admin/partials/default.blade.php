@@ -7,6 +7,7 @@
           content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Codeply">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ URL::asset('css/font-awesome/css/font-awesome.min.css') }}">
@@ -49,6 +50,8 @@
 </div>
 <script type="text/javascript">
     var tokenCelebsUri = "{{route('celebsToken')}}";
+    var ajaxAddUri = "{{route('addUri')}}";
+    var dashboardUri = "{{route('adminDashboard')}}";
 </script>
 <!-- jQuery 3 -->
 <script src="{{ URL::asset('css/jquery/dist/jquery.min.js') }}"></script>

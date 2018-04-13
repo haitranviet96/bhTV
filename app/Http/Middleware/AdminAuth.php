@@ -17,7 +17,7 @@ class AdminAuth
     public function handle($request, Closure $next)
     {
         if (isset(Auth::user()->role)) {
-            if (Auth::user()->role == '2') {
+            if (Auth::user()->role == 'admin') {
                 return $next($request);
             } else return response('Unauthorized !', 401);
         } else return redirect('login');

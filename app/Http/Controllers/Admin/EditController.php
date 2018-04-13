@@ -7,10 +7,21 @@
  */
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\DB;
+
 class EditController {
 
     public function index(){
-        return view('admin.editfilm');
+        $id = DB::table('films')->insertGetId([
+            'name' => 'mr robot',
+            'released_date' => '',
+            'description' => $description,
+            'img_path' => $img,
+            'trailer_path' => $trailer,
+            'length' => $length,
+            'avg_rate' => $rate,
+            'mat_rate' => $mat,
+        ]);
     }
 
 }

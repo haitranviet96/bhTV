@@ -21,11 +21,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', function(){
     return view('admin.dashboard');
-})->middleware('admin');
+})->middleware('admin')->name('adminDashboard');
 
 Route::get('/admin/tokeninput','Admin\TokenInput@getCelebs')->name('celebsToken');
 
-Route::get('/admin/addFilm','Admin\AddController@addFilm')->name('addFilm');
+Route::get('/admin/add','Admin\AddController@index')->name('addUri');
+Route::post('/admin/add','Admin\AddController@index')->name('addUri');
+
 Route::get('/admin/edit/film', function (){
     return view('admin.edit.film');
 })->name('editfilm');

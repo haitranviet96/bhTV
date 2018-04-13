@@ -97,7 +97,7 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <button type="submit" class="btn btn-default">Cancel</button>
-                            <button type="button" class="btn btn-info pull-right" id="submitChange">Save Changes</button>
+                            <button type="button" class="btn btn-info pull-right" id="editSubmitChange">Save Changes</button>
                         </div>
                         <!-- /.box-footer -->
                     </form>
