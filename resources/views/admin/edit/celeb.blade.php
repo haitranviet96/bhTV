@@ -30,14 +30,6 @@
                         <form class="form-horizontal">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="inputSearch3" class="col-sm-2 control-label">Type in to search</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputSearch3" placeholder="Search for celebs">
-                                        <div id="response"></div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <label for="inputName3" class="col-sm-2 control-label">Name</label>
 
                                     <div class="col-sm-10">
