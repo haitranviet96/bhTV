@@ -50,6 +50,7 @@
 </div>
 <script type="text/javascript">
     var tokenCelebsUri = "{{route('celebsToken')}}";
+    var tokenGenreUri = "{{route('genreToken')}}";
     var ajaxAddUri = "{{route('addUri')}}";
     var dashboardUri = "{{route('adminDashboard')}}";
 </script>
