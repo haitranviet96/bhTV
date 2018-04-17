@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Film;
 use Illuminate\Http\Request;
 use App\Rate;
+use App\Genre;
 use App\Http\Controllers\RatingController;
+use DB;
 
 class MovieController extends Controller
 {
@@ -58,19 +60,16 @@ class MovieController extends Controller
     public function filmInfo($id){
         $rating = new RatingController();
         $film = Film::where('id', '=', ''.$id.'')->first();
-    //        $film['released_date'] = date_format($film['released_date'],'Y-m-d');
-    //        return gettype($film['released_date'].date());
-//            var_dump($film['released_date']->toDateTimeString());exit;
         $date = substr($film['released_date']->toDateTimeString(),0,10);
         $film['released_date_str'] = $date;
         $p = $rating->isUserRatedAFilm($film['id']); // return the rating points
         $film['previous_rate'] =  $p; //previous rate of current user
         $rate_info = $rating->getRateInfoOfAFilm($film['id']);
-//        var_dump($rate_info);
-//        exit;
-
         $film['rate_times'] = $rate_info['rate_times'];
         $film['avg_point'] = $rate_info['avg_point'];
+        $genre_film = DB::table('genre_film')->where('film_id', $film['id'])->first();
+        $genre_name = Genre::where('id', '=', $genre_film->genre_id)->first();
+        $film['genre'] = $genre_name->name;
         return view('movie/film_info')->with(['film' => $film]);
         }
 }

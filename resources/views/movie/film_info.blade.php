@@ -13,6 +13,10 @@
                <p class="highlight_text">Film name:</p>
                {{$film['name']}}
            </div>
+            <div>
+                <p class="highlight_text">Genre:</p>
+                {{$film['genre']}}
+            </div>
            <div>
                <p class="highlight_text"> Released date:</p>
                {{$film['released_date_str']}}
