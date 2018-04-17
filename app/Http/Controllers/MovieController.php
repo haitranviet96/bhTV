@@ -74,12 +74,11 @@ class MovieController extends Controller
             $genre_id = $a_genre_film->genre_id;
             foreach($genre_name as $genre){
                 if($genre->id == $genre_id){
-                    $genre_str = $genre_str.$genre->name." ";
+                    $genre_str = $genre_str.$genre->name.", ";
                 }
             }
-            $genre_str = $genre_str.",";
         }
-        $genre_str[-1] = ' ';
+        $genre_str[-2] = ' ';
         $film['genre']=$genre_str;
 
 
