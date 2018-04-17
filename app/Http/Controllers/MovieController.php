@@ -67,9 +67,21 @@ class MovieController extends Controller
         $rate_info = $rating->getRateInfoOfAFilm($film['id']);
         $film['rate_times'] = $rate_info['rate_times'];
         $film['avg_point'] = $rate_info['avg_point'];
-        $genre_film = DB::table('genre_film')->where('film_id', $film['id'])->first();
-        $genre_name = Genre::where('id', '=', $genre_film->genre_id)->first();
-        $film['genre'] = $genre_name->name;
+        $genre_str = "";
+        $genre_film = DB::table('genre_film')->where('film_id', $film['id'])->get();
+        $genre_name = Genre::all();
+        foreach($genre_film as $a_genre_film){
+            $genre_id = $a_genre_film->genre_id;
+            foreach($genre_name as $genre){
+                if($genre->id == $genre_id){
+                    $genre_str = $genre_str.$genre->name.", ";
+                }
+            }
+        }
+        $genre_str[-2] = ' ';
+        $film['genre']=$genre_str;
+
+
         return view('movie/film_info')->with(['film' => $film]);
         }
 }

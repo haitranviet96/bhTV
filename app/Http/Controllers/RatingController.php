@@ -10,15 +10,17 @@ class RatingController extends Controller
 {
     //
     public function rate(Request $request){
+
         if(!Auth::check()){
             $command_code = 0;
+            return json_encode(array("command_code" => $command_code, "rate_times" => 0, "avg_point" => 0));
         }
         else{
             $command_code = 1;
             $this->updateARate($request->film_id, $request->rate_point);
             $new_rate_info = $this->getRateInfoOfAFilm($request->film_id);
+            return json_encode(array("command_code" => $command_code, "rate_times" => $new_rate_info['rate_times'], "avg_point" => $new_rate_info['avg_point']));
         }
-        return json_encode(array("command_code" => $command_code, "rate_times" => $new_rate_info['rate_times'], "avg_point" => $new_rate_info['avg_point']));
     }
     public static function isUserRatedAFilm($film_id){
         $user = Auth::user();
