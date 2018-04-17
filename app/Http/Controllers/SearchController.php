@@ -13,7 +13,6 @@ class SearchController extends Controller
     {
         $q = $request->q;
 
-            $response = "<ul><li>No data found</li></ul>";
             $data_query = Film::where('name', 'LIKE', '%'.$q.'%')->take(6)->get();
             $response = "<ul id='ulSearch'>";
             $response .= "<li class='sug_row' style='font-size: larger; font-weight: bold; font-style: italic; color: DarkGray'>".'Films'."</li>";

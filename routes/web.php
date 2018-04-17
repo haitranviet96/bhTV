@@ -75,3 +75,7 @@ Route::get('/movie/now_playing', 'MovieController@nowPlaying');
 Route::get('/movie/{id}', 'MovieController@filmInfo');
 
 Route::get('/people', 'PeopleController@people');
+
+Route::get('/rate', 'RatingController@rate');
+
+
