@@ -44,6 +44,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="inputGenre3" class="col-sm-2 control-label">Genre</label>
+                                    <div class="col-sm-10" id="genre3">
+                                        <input type="text" class="form-control" id="inputGenre3" placeholder="Genre" name="genre">
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="inputDescription3" class="col-sm-2 control-label">Description</label>
 
                                     <div class="col-sm-10">
@@ -92,18 +98,21 @@
                                         <input type="text" class="form-control" id="inputDirector3" placeholder="Directors" name="director">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="cast-form">
                                     <label for="inputCast3" class="col-sm-2 control-label">Casts</label>
 
                                     <div class="col-sm-10" id="cast3">
                                         <input type="text" class="form-control" id="inputCast3" placeholder="Cast" name="cast">
+                                        <span style="display: inline-flex;margin: 7px">AS</span>
+                                        <input type="text" class="role3" style="display: inline-flex">
+                                        <button type="button" class="btn btn-default" style="margin-left: 50px"><i class="fa fa-plus-circle"></i></button>
                                     </div>
                                 </div>
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-default">Cancel</button>
-                                <button type="button" class="btn btn-info pull-right" id="addSubmitChange">Save Changes</button>
+                                <button type="button" class="btn btn-info pull-right" id="addFilmSubmitChange">Save Changes</button>
                             </div>
                             <!-- /.box-footer -->
                         </form>

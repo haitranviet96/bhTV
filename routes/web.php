@@ -23,7 +23,9 @@ Route::get('/admin', function(){
     return view('admin.dashboard');
 })->middleware('admin')->name('adminDashboard');
 
-Route::get('/admin/tokeninput','Admin\TokenInput@getCelebs')->name('celebsToken');
+Route::get('/admin/tokeninput/celebs','Admin\TokenInput@getCelebs')->name('celebsToken');
+Route::get('/admin/tokeninput/genre','Admin\TokenInput@getGenre')->name('genreToken');
+
 
 Route::get('/admin/add','Admin\AddController@index')->name('addUri');
 Route::post('/admin/add','Admin\AddController@index')->name('addUri');

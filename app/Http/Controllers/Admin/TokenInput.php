@@ -32,6 +32,16 @@ class TokenInput extends Controller
         }
         return null;
     }
+    public function getGenre()
+    {
+        if($this->request->isMethod('get'))
+        {
+            $q = $this->request->input('q');
+            $genre = DB::table('genres')->select('id','name')->where('name','like','%'.$q.'%')->get();
+            return $genre;
+        }
+        return null;
+    }
 
     public function getFilms()
     {

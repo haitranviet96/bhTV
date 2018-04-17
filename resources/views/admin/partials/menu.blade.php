@@ -216,7 +216,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="https://www.mobafire.com/images/avatars/yasuo-nightbringer.png" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Yasuo Ma Kie^'m</span>
+                        <span class="hidden-xs">{{ Auth::user()->name }}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -224,7 +224,7 @@
                             <img src="https://www.mobafire.com/images/avatars/yasuo-nightbringer.png" class="img-circle" alt="User Image">
 
                             <p>
-                                Yasuo Ma Kie^'m - The Unforgiven
+                                {{ Auth::user()->name }}
                                 <small>Member at Summoner's Rift since Nov. 2012</small>
                             </p>
                         </li>
@@ -271,7 +271,7 @@
                 <img src="https://www.mobafire.com/images/avatars/yasuo-nightbringer.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Yasuo Ma Kie^'m</p>
+                <p>{{ Auth::user()->name }}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
