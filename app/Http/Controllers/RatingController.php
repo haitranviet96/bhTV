@@ -11,13 +11,14 @@ class RatingController extends Controller
     //
     public function rate(Request $request){
         if(!Auth::check()){
-            $return_var = 0;
+            $command_code = 0;
         }
         else{
-            $return_var = 1;
+            $command_code = 1;
             $this->updateARate($request->film_id, $request->rate_point);
+            $new_rate_info = $this->getRateInfoOfAFilm($request->film_id);
         }
-        return $return_var;
+        return json_encode(array("command_code" => $command_code, "rate_times" => $new_rate_info['rate_times'], "avg_point" => $new_rate_info['avg_point']));
     }
     public static function isUserRatedAFilm($film_id){
         $user = Auth::user();

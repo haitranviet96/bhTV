@@ -31,7 +31,8 @@
             </div>
             <div  style="clear: both">
                 <p class="highlight_text">Rate Info:</p>
-                Rated {{$film['avg_point']}} stars out of {{$film['rate_times']}} reviews.
+                <div id="rate_info">Rated {{$film['avg_point']}} stars out of {{$film['rate_times']}} reviews.
+                </div>
             </div>
             <div class="outter_box">
                 <p id="rate_noti"></p>
@@ -41,6 +42,11 @@
                     <div id="3" class="btn-3 rate-btn"></div>
                     <div id="4" class="btn-4 rate-btn"></div>
                     <div id="5" class="btn-5 rate-btn"></div>
+                    <div id="6" class="btn-6 rate-btn"></div>
+                    <div id="7" class="btn-7 rate-btn"></div>
+                    <div id="8" class="btn-8 rate-btn"></div>
+                    <div id="9" class="btn-9 rate-btn"></div>
+                    <div id="10"class="btn-10 rate-btn"></div>
                 </div>
                 {{--<div class="result-container">--}}
                     {{--<div class="rate-bg" style="width: 60%"></div>--}}
@@ -92,17 +98,18 @@
                         rate_point: therate,
                     },
                     success:function(return_var){
-                        if(return_var == 0){
+                        if(return_var.command_code == 0){
                             alert("We are so sorry, you need to login before rating this film!");
                             window.location.href = "/login"
                         }
                         else{
                             alert("Thank you for your rating!");
+                            $("#rate_info").html("<p>Rated "+return_var.avg_point+" stars out of "+return_var.rate_times+" reviews.</p>");
                             $("#rate_noti").html("<p>You rated this film "+therate+" stars</p>");
                             console.log(return_var);
                         }
                     },
-                    dataType: 'text',
+                    dataType: 'Json',
                     });
             });
         });
