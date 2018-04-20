@@ -30,17 +30,16 @@ Route::get('/admin/tokeninput/genre','Admin\TokenInput@getGenre')->name('genreTo
 Route::get('/admin/add','Admin\AddController@index')->name('addUri');
 Route::post('/admin/add','Admin\AddController@index')->name('addUri');
 
-Route::get('/admin/edit/film', function (){
-    return view('admin.edit.film');
-})->name('editfilm');
+Route::get('/admin/edit','Admin\EditController@index')->name('editUri');
+Route::post('/admin/edit','Admin\EditController@index')->name('editUri');
+
+Route::get('/admin/edit/film/{id}', 'Admin\EditController@editFilm')->name('editFilm');
 
 Route::get('/admin/add/film', function (){
     return view('admin.add.film');
 })->name('addfilm');
 
-Route::get('/admin/remove/film', function(){
-   return view('admin.remove.film');
-})->name('removefilm');
+Route::get('/admin/remove/film/{id}','Admin\RemoveController@removeFilm')->name('removeFilm');
 
 Route::get('/admin/edit/celeb', function(){
     return view('admin.edit.celeb');
@@ -66,6 +65,8 @@ Route::get('/admin/remove/genre',function (){
    return view('admin.remove.genre');
 })->name('removegenre');
 
+Route::get('/admin/allFilm','Admin\MovieController@index')->name('allFilms');
+Route::get('/admin/allCelebs','Admin\CelebsController@index')->name('allCelebs');
 Route::get('/search', 'SearchController@test');
 
 Route::get('/discover', 'DiscoverController@index');

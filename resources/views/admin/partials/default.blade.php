@@ -52,6 +52,7 @@
     var tokenCelebsUri = "{{route('celebsToken')}}";
     var tokenGenreUri = "{{route('genreToken')}}";
     var ajaxAddUri = "{{route('addUri')}}";
+    var ajaxEditUri = "{{route('editUri')}}";
     var dashboardUri = "{{route('adminDashboard')}}";
 </script>
 <!-- jQuery 3 -->

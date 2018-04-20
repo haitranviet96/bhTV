@@ -40,7 +40,7 @@ class AddController extends Controller
                 $casts[] = $request->input('casts');
                 $genres[] = $request->input('genre');
                 $roles[] = $request->input('roles');
-                if (!empty($name) && !empty($released_date) && !empty($description) && !empty($img) && !empty($rate)) {
+                if ($name!= '' && $released_date != '' && $description != '' && $img != '' && $rate != '') {
                     try {
                         $id_film = DB::table('films')->insertGetId([
                             'name' => $name,
@@ -67,7 +67,7 @@ class AddController extends Controller
                         }
                         foreach ($casts as $cast) {
                             if(!empty($cast)) {
-                                for ($i = 0; $i < count($cast) - 1;$i++)
+                                for ($i = 0; $i < count($cast);$i++)
                                 {
                                     if(!empty($cast[$i]))
                                     {

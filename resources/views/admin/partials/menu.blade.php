@@ -310,9 +310,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('editfilm')}}"><i class="fa fa-edit"></i> Edit Film</a></li>
+                    {{--<li><a href="{{route('editfilm')}}"><i class="fa fa-edit"></i> Edit Film</a></li>--}}
                     <li><a href="{{route('addfilm')}}" class="add_film"><i class="fa fa-plus"></i> Add Film</a></li>
-                    <li><a href="{{route('removefilm')}}"><i class="fa fa-remove"></i> Remove Film</a></li>
+                    <li><a href="{{route('allFilms')}}"><i class="fa fa-remove"></i> All Films</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -324,9 +324,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('editceleb')}}"><i class="fa fa-edit"></i> Edit Profile</a></li>
+                    {{--<li><a href="{{route('editceleb')}}"><i class="fa fa-edit"></i> Edit Profile</a></li>--}}
                     <li><a href="{{route('addceleb')}}"><i class="fa fa-plus"></i> Add Profile</a></li>
-                    <li><a href="{{route('removeceleb')}}"><i class="fa fa-remove"></i> Remove Profile</a></li>
+                    <li><a href="{{route('allCelebs')}}"><i class="fa fa-remove"></i> All Profile</a></li>
                 </ul>
             </li>
             <li class="treeview">
