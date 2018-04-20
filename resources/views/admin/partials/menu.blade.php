@@ -311,7 +311,6 @@
                 </a>
                 <ul class="treeview-menu">
                     {{--<li><a href="{{route('editfilm')}}"><i class="fa fa-edit"></i> Edit Film</a></li>--}}
-                    <li><a href="{{route('addfilm')}}" class="add_film"><i class="fa fa-plus"></i> Add Film</a></li>
                     <li><a href="{{route('allFilms')}}"><i class="fa fa-remove"></i> All Films</a></li>
                 </ul>
             </li>

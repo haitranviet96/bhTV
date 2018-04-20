@@ -53,6 +53,7 @@
     var tokenGenreUri = "{{route('genreToken')}}";
     var ajaxAddUri = "{{route('addUri')}}";
     var ajaxEditUri = "{{route('editUri')}}";
+    var ajaxRemoveUri = "{{route('removeUri')}}";
     var dashboardUri = "{{route('adminDashboard')}}";
 </script>
 <!-- jQuery 3 -->

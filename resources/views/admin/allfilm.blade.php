@@ -5,7 +5,9 @@
 @section('content')
     <section class="bg-primary" id="popular">
         <div class="container">
-            <h2 class="margin-top-1 margin-bottom-1 text-primary">All Films</h2>
+            <h2 class="margin-top-1 margin-bottom-1 text-primary">All Films<a href="{{route('addfilm')}}" class="btn btn-default" style="margin-left: 990px"><i class="fa fa-plus-circle"></i></a></h2>
+
+
             @foreach($films as $film)
                 <div class="col-sm-6 table-bordered movie-item boxed" style="display: block;width: 100%">
                     <div class="col-sm-4">
@@ -13,8 +15,7 @@
                              alt="{{$film['name']}}" width="140" height="209">
                     </div>
                     <div class="col-sm-8">
-                        <h4><a title="{{$film['name']}}"
-                               href="/movie/{{$film['id']}}">{{$film['name']}}</a></h4>
+                        <h4><a title="{{$film['name']}}">{{$film['name']}}</a></h4>
                         <p>
                             @if($film['mat_rate'] != "")
                                 @php ($mat_rate = $film['mat_rate'])
@@ -50,10 +51,11 @@
                             <a href="{{$film['trailer_path']}}" class="btn btn-default">Watch Trailer</a>
                         @endif
                         <a href="{{route('editFilm',['id'=>$film['id']])}}" title="Click to edit" class="btn btn-default btn-success">Edit</a>
-                        <a href="{{route('removeFilm',['id'=>$film['id']])}}" title="Click to remove" class="btn btn-default btn-danger">Remove</a>
+                        <button  title="Click to remove" id="button_remove_film" class="btn btn-default btn-danger" value="{{$film['id']}}">Remove</button>
                     </div>
                 </div>
             @endforeach
         </div>
+        {{ $films->links() }}
     </section>
 @endsection

@@ -10,11 +10,6 @@
     $("#inputGenre3").tokenInput(tokenGenreUri);
     $('#cast3').find("ul").addClass("cast");
 
-    // $("#cast3").on('DOMNodeInserted', function(e) {
-    //     $("#inputCast3").tokenInput(tokenCelebsUri);
-    //     $('#cast3').find("ul").addClass("cast");
-    //
-    // });
     $('#addFilmSubmitChange').click(function () {
         var tokenDir = $('#director3').find("ul").text();
         var directors = tokenDir.split('×');
@@ -252,6 +247,32 @@
             });
         } else {
             alert("Please complete all fields!");
+        }
+    });
+    $('button#button_remove_film').click(function () {
+        var film_id = $(this).val();
+        var self = this;
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        if (confirm('Are you sure you want to delete this?')) {
+            $.ajax({
+                url: ajaxRemoveUri,
+                type: 'POST',
+                data:{
+                    id : 'film',
+                    film_id : film_id
+                },
+                contentType: "application/x-www-form-urlencoded",
+                success : function () {
+                        $(self).parent().parent().hide('slow', function(){ $(self).parent().parent().remove(); });
+                },
+                error: function () {
+                    alert("Delete Error!");
+                }
+            });
         }
     });
 })(jQuery);

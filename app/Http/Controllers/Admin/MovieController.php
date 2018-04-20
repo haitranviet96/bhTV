@@ -17,7 +17,7 @@ class MovieController extends Controller
 {
     public function index()
     {
-        $films = Film::orderBy('id', 'desc')->take(16)->get();
+        $films = Film::orderBy('id', 'desc')->paginate(10);
         return view('admin/allfilm')->with(['films' => $films]);
     }
 }

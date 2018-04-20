@@ -33,6 +33,9 @@ Route::post('/admin/add','Admin\AddController@index')->name('addUri');
 Route::get('/admin/edit','Admin\EditController@index')->name('editUri');
 Route::post('/admin/edit','Admin\EditController@index')->name('editUri');
 
+Route::get('/admin/remove','Admin\RemoveController@index')->name('removeUri');
+Route::post('/admin/remove','Admin\RemoveController@index')->name('removeUri');
+
 Route::get('/admin/edit/film/{id}', 'Admin\EditController@editFilm')->name('editFilm');
 
 Route::get('/admin/add/film', function (){
