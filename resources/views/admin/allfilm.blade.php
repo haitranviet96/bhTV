@@ -5,7 +5,7 @@
 @section('content')
     <section class="bg-primary" id="popular">
         <div class="container">
-            <h2 class="margin-top-1 margin-bottom-1 text-primary">All Films<a href="{{route('addfilm')}}" class="btn btn-default" style="margin-left: 990px"><i class="fa fa-plus-circle"></i></a></h2>
+            <h2 class="margin-top-1 margin-bottom-1 text-primary">All Films<a href="{{route('addfilm')}}" title="Click to add film" class="btn btn-default" style="margin-left: 990px"><i class="fa fa-plus-circle"></i></a></h2>
 
 
             @foreach($films as $film)

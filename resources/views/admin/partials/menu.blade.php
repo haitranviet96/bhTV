@@ -324,7 +324,6 @@
                 </a>
                 <ul class="treeview-menu">
                     {{--<li><a href="{{route('editceleb')}}"><i class="fa fa-edit"></i> Edit Profile</a></li>--}}
-                    <li><a href="{{route('addceleb')}}"><i class="fa fa-plus"></i> Add Profile</a></li>
                     <li><a href="{{route('allCelebs')}}"><i class="fa fa-remove"></i> All Profile</a></li>
                 </ul>
             </li>

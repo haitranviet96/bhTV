@@ -37,6 +37,7 @@ Route::get('/admin/remove','Admin\RemoveController@index')->name('removeUri');
 Route::post('/admin/remove','Admin\RemoveController@index')->name('removeUri');
 
 Route::get('/admin/edit/film/{id}', 'Admin\EditController@editFilm')->name('editFilm');
+Route::get('/admin/edit/celeb/{id}', 'Admin\EditController@editCeleb')->name('editCeleb');
 
 Route::get('/admin/add/film', function (){
     return view('admin.add.film');

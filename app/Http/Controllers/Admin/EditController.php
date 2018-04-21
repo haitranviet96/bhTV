@@ -9,6 +9,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\DB;
 use App\Film;
+use App\Celeb;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use League\Flysystem\Exception;
@@ -102,6 +103,34 @@ class EditController {
                     }
                 }
             }
+            if($id == 'celeb')
+            {
+                $celeb_id = $request->input('celeb_id');
+                $name = $request->input('name');
+                $dob = $request->input('dob');
+                $pob = $request->input('pob');
+                $gender = $request->input('gender');
+                $img = $request->input('img_path');
+                $bio = $request->input('bio');
+                if($name != '' && $gender != '' && $celeb_id != '')
+                {
+                    try
+                    {
+                        DB::table('celebs')->where('id','=',''.$celeb_id.'')->update([
+                            'name' => $name,
+                            'dob' => $dob,
+                            'pob' => $pob,
+                            'gender' => $gender,
+                            'img_path' => $img,
+                            'bio' => $bio
+                        ]);
+                    } catch (Exception $e)
+                    {
+                        echo $e->getMessage();
+                    }
+
+                }
+            }
         }
     }
     public function editFilm($id)
@@ -137,5 +166,10 @@ class EditController {
         }
         $film['directors'] = json_encode($arrDirecs);
         return view('admin.edit.film')->with(['film' => $film]);
+    }
+    public function editCeleb($id)
+    {
+        $celeb = Celeb::where('id', '=', ''.$id.'')->first();
+        return view('admin.edit.celeb')->with(['celeb' => $celeb]);
     }
 }

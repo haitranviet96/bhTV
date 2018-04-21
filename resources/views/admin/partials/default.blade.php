@@ -55,6 +55,8 @@
     var ajaxEditUri = "{{route('editUri')}}";
     var ajaxRemoveUri = "{{route('removeUri')}}";
     var dashboardUri = "{{route('adminDashboard')}}";
+    var allFilmsUri = "{{route('allFilms')}}";
+    var allCelebsUri = "{{route('allCelebs')}}";
 </script>
 <!-- jQuery 3 -->
 <script src="{{ URL::asset('css/jquery/dist/jquery.min.js') }}"></script>

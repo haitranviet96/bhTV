@@ -239,7 +239,7 @@
 
                 success: function () {
                     alert("Film " + name + " was successfully edited!");
-                    window.location.href = dashboardUri;
+                    window.location.href = allFilmsUri;
                 },
                 error: function () {
                     alert("Error!!!!");
@@ -268,6 +268,69 @@
                 contentType: "application/x-www-form-urlencoded",
                 success : function () {
                         $(self).parent().parent().hide('slow', function(){ $(self).parent().parent().remove(); });
+                },
+                error: function () {
+                    alert("Delete Error!");
+                }
+            });
+        }
+    });
+    $('#editCelebSubmitChange').click(function () {
+        var name = document.getElementById("inputName3").value;
+        var img = document.getElementById("inputImage3").value;
+        var dob = document.getElementById("inputDOB3").value;
+        var pob = document.getElementById("inputPOB3").value;
+        var bio = document.getElementById("inputBio3").value;
+        var gender = parseInt($('#inputGender3').val(),10);
+        var celeb_id = $(this).val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: ajaxEditUri,
+            type: 'POST',
+            data: {
+                id: 'celeb',
+                celeb_id : celeb_id,
+                name: name,
+                img_path: img,
+                dob : dob,
+                pob : pob,
+                bio : bio,
+                gender : gender
+            },
+            contentType: "application/x-www-form-urlencoded",
+
+            success: function () {
+                alert("Profile of " + name + " was successfully edited!");
+                window.location.href = allCelebsUri;
+            },
+            error: function () {
+                alert("Error!!!!");
+            }
+        });
+    });
+    $('button#button_remove_celeb').click(function () {
+        var celeb_id = $(this).val();
+        var self = this;
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        if (confirm('Are you sure you want to delete this?')) {
+            $.ajax({
+                url: ajaxRemoveUri,
+                type: 'POST',
+                data:{
+                    id : 'celeb',
+                    celeb_id : celeb_id
+                },
+                contentType: "application/x-www-form-urlencoded",
+                success : function () {
+                    $(self).parent().parent().hide('slow', function(){ $(self).parent().parent().remove(); });
                 },
                 error: function () {
                     alert("Delete Error!");
