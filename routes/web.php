@@ -23,8 +23,8 @@ Route::get('/admin', function(){
     return view('admin.dashboard');
 })->middleware('admin')->name('adminDashboard');
 
-Route::get('/admin/tokeninput/celebs','Admin\TokenInput@getCelebs')->name('celebsToken');
-Route::get('/admin/tokeninput/genre','Admin\TokenInput@getGenre')->name('genreToken');
+Route::get('/admin/tokenInput/celebs','Admin\TokenInput@getCelebs')->name('celebsToken');
+Route::get('/admin/tokenInput/genre','Admin\TokenInput@getGenre')->name('genreToken');
 
 
 Route::get('/admin/add','Admin\AddController@index')->name('addUri');
@@ -41,36 +41,18 @@ Route::get('/admin/edit/celeb/{id}', 'Admin\EditController@editCeleb')->name('ed
 
 Route::get('/admin/add/film', function (){
     return view('admin.add.film');
-})->name('addfilm');
-
-Route::get('/admin/remove/film/{id}','Admin\RemoveController@removeFilm')->name('removeFilm');
-
-Route::get('/admin/edit/celeb', function(){
-    return view('admin.edit.celeb');
-})->name('editceleb');
+})->name('addFilm');
 
 Route::get('/admin/add/celeb', function (){
     return view('admin.add.celeb');
-})->name('addceleb');
+})->name('addCeleb');
 
-Route::get('/admin/remove/celeb',function (){
-    return view('admin.remove.celeb');
-})->name('removeceleb');
 
-Route::get('/admin/edit/genre',function (){
-    return view('admin.edit.genre');
-})->name('editgenre');
-
-Route::get('/admin/add/genre',function (){
-    return view('admin.add.genre');
-})->name('addgenre');
-
-Route::get('/admin/remove/genre',function (){
-   return view('admin.remove.genre');
-})->name('removegenre');
 
 Route::get('/admin/allFilm','Admin\MovieController@index')->name('allFilms');
 Route::get('/admin/allCelebs','Admin\CelebsController@index')->name('allCelebs');
+Route::get('/admin/allUsers','Admin\UsersController@index')->name('allUsers');
+
 Route::get('/search', 'SearchController@test');
 
 Route::get('/discover', 'DiscoverController@index');

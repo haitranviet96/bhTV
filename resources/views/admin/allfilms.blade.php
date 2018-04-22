@@ -3,13 +3,16 @@
 @section('title','All Films')
 
 @section('content')
-    <section class="bg-primary" id="popular">
+    <section class="content" id="popular">
         <div class="container">
-            <h2 class="margin-top-1 margin-bottom-1 text-primary">All Films<a href="{{route('addfilm')}}" title="Click to add film" class="btn btn-default" style="margin-left: 990px"><i class="fa fa-plus-circle"></i></a></h2>
+            <div class="box-header">
+                <h2 class="margin-top-1 margin-bottom-1 text-primary" style="display: inline-block">All Films</h2>
+                <a href="{{route('addFilm')}}" title="Click to add film" class="btn btn-default" style="position: absolute;right: 0px;top: 30px"><i class="fa fa-plus-circle"></i></a>
+            </div>
 
 
             @foreach($films as $film)
-                <div class="col-sm-6 table-bordered movie-item boxed" style="display: block;width: 100%">
+                <div class="col-sm-6 table-bordered movie-item boxed" style="display: block;width: 100%;color:whitesmoke">
                     <div class="col-sm-4">
                         <img src="{{$film['img_path']}}"
                              alt="{{$film['name']}}" width="140" height="209">

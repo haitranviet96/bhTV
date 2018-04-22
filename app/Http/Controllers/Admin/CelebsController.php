@@ -18,6 +18,6 @@ class CelebsController extends Controller
     public function index()
     {
         $celebs = Celeb::orderBy('id', 'desc')->paginate(10);
-        return view('admin/allceleb')->with(['celebs' => $celebs]);
+        return view('admin/allcelebs')->with(['celebs' => $celebs]);
     }
 }

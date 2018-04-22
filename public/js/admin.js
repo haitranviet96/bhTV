@@ -257,7 +257,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        if (confirm('Are you sure you want to delete this?')) {
+        if (confirm('Are you sure you want to delete this film?')) {
             $.ajax({
                 url: ajaxRemoveUri,
                 type: 'POST',
@@ -320,7 +320,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        if (confirm('Are you sure you want to delete this?')) {
+        if (confirm('Are you sure you want to delete this celeb?')) {
             $.ajax({
                 url: ajaxRemoveUri,
                 type: 'POST',
@@ -334,6 +334,59 @@
                 },
                 error: function () {
                     alert("Delete Error!");
+                }
+            });
+        }
+    });
+    $('button#button_remove_user').click(function () {
+        var user_id = $(this).val();
+        var self = this;
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        if (confirm('Are you sure you want to delete this user?')) {
+            $.ajax({
+                url: ajaxRemoveUri,
+                type: 'POST',
+                data:{
+                    id : 'user',
+                    user_id : user_id
+                },
+                contentType: "application/x-www-form-urlencoded",
+                success : function () {
+                    $(self).parent().parent().hide('slow', function(){ $(self).parent().parent().remove(); });
+                },
+                error: function () {
+                    alert("Delete Error!");
+                }
+            });
+        }
+    });
+    $('button#button_role_user').click(function () {
+        var user_id = $(this).val();
+        var role = document.getElementById("role").value;
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        if (confirm('Are you sure you want to change role of this user?')) {
+            $.ajax({
+                url: ajaxRemoveUri,
+                type: 'POST',
+                data:{
+                    id : 'role',
+                    user_id : user_id,
+                    role : role
+                },
+                contentType: "application/x-www-form-urlencoded",
+                success : function () {
+                    window.location.reload();
+                },
+                error: function () {
+                    alert("Change role failed!");
                 }
             });
         }

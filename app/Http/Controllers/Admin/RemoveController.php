@@ -51,6 +51,40 @@ class RemoveController extends Controller
                 {
                     echo $e->getMessage();
                 }
+            } else if($id == 'user')
+            {
+                $user_id = $request->input('user_id');
+                try
+                {
+                    DB::table('rates')->where('user_id','=',''.$user_id.'')->delete();
+                    DB::table('comments')->where('user_id','=',''.$user_id.'')->delete();
+                    DB::table('wishlists')->where('user_id','=',''.$user_id.'')->delete();
+                    DB::table('users')->where('id','=',''.$user_id.'')->delete();
+                } catch(Exception $e)
+                {
+                    echo $e->getMessage();
+                }
+            } else if($id == 'role')
+            {
+                $user_id = $request->input('user_id');
+                try
+                {
+                    $role = $request->input('role');
+                    if($role == 'admin')
+                    {
+                        DB::table('users')->where('id','=',''.$user_id.'')->update([
+                            'role' => 'user'
+                        ]);
+                    } else {
+                        DB::table('users')->where('id','=',''.$user_id.'')->update([
+                            'role' => 'admin'
+                        ]);
+                    }
+
+                } catch(Exception $e)
+                {
+                    echo $e->getMessage();
+                }
             }
         } else throw new Exception("Not an ajax request!");
     }
