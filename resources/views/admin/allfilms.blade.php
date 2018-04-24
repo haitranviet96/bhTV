@@ -3,6 +3,8 @@
 @section('title','All Films')
 
 @section('content')
+    <div class="content-wrapper">
+
     <section class="content" id="popular">
         <div class="container">
             <div class="box-header">
@@ -61,4 +63,5 @@
         </div>
         {{ $films->links() }}
     </section>
+    </div>
 @endsection

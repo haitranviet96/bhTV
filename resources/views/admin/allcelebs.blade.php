@@ -3,6 +3,8 @@
 @section('title','All Celebs')
 
 @section('content')
+    <div class="content-wrapper">
+
     <section class="content" id="popular">
         <div class="container">
             <div class="box-header">
@@ -34,4 +36,5 @@
         </div>
         {{ $celebs->links() }}
     </section>
+    </div>
 @endsection
