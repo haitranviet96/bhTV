@@ -6,7 +6,9 @@ use App\Film;
 use Illuminate\Http\Request;
 use App\Rate;
 use App\Genre;
+use App\Celeb;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\CommentController;
 use DB;
 
 class MovieController extends Controller
@@ -68,6 +70,7 @@ class MovieController extends Controller
         $film['rate_times'] = $rate_info['rate_times'];
         $film['avg_point'] = $rate_info['avg_point'];
         $genre_str = "";
+        //get all genre of film
         $genre_film = DB::table('genre_film')->where('film_id', $film['id'])->get();
         $genre_name = Genre::all();
         foreach($genre_film as $a_genre_film){
@@ -80,8 +83,19 @@ class MovieController extends Controller
         }
         $genre_str[-2] = ' ';
         $film['genre']=$genre_str;
-
-
-        return view('movie/film_info')->with(['film' => $film]);
+        //get comments for that film
+        $comment_ins = new CommentController();
+        $comments_of_film = $comment_ins->getComments($film['id']);
+        //get list of actors for film
+        $actor_list_str = "";
+        $actors = DB::table('actor_film')->where('film_id', $film['id'])->get();
+        foreach($actors as $actor){
+            $an_actor = Celeb::where('id', '=', $actor->actor_id)->first();
+            $actor_list_str = $actor_list_str.$an_actor->name.", ";
         }
+        $actor_list_str[-2] = ' ';
+        $film['actors'] = $actor_list_str;
+        return view('movie/film_info')->with(['film' => $film, 'comment_query'=> $comments_of_film]);
+        }
+
 }

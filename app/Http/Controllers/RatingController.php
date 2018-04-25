@@ -61,11 +61,13 @@ class RatingController extends Controller
                 $total_point = $total_point + $rate->rate;
             }
             $avg_point = (float) $total_point / (float) $rate_times;
+            $avg_point_str = number_format((float)$avg_point, 2, '.', '');
         }
         else {
             $rate_times = 0;
             $avg_point = 0;
+            $avg_point_str = '0';
         }
-        return ['rate_times' => $rate_times, 'avg_point' => $avg_point];
+        return ['rate_times' => $rate_times, 'avg_point' => $avg_point_str];
     }
 }

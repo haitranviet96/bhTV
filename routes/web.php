@@ -67,4 +67,9 @@ Route::get('/people', 'PeopleController@people');
 
 Route::get('/rate', 'RatingController@rate');
 
+Route::get('/comment/{film_id}', 'CommentController@getComments');
+Route::get('/comment_add', 'CommentController@addComment');
+
+
+
 
