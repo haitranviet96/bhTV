@@ -15,7 +15,7 @@ class PeopleController extends Controller
      */
     public function people()
     {
-        $celebs = Celeb::orderBy('name', 'asc')->take(16)->get();
+        $celebs = Celeb::orderBy('name', 'asc')->paginate(16);
         return view('people/people')->with(['celebs' => $celebs]);
     }
 }

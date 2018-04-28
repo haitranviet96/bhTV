@@ -15,8 +15,8 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Rate::class, function (Faker $faker) {
     return [
-        'user_id' => $faker->numberBetween(1,101),
-        'film_id' => $faker->numberBetween(1,243),
+        'user_id' => $faker->numberBetween(1,99),
+        'film_id' => $faker->numberBetween(1,240),
         'rate' => $faker->numberBetween(3,10),
     ];
 });

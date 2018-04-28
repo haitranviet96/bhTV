@@ -21,6 +21,7 @@
             </div>
         </div>
         @endforeach
+        <div style="width: 50%; margin: 0 auto;">{{ $celebs->links() }}</div>
     </div>
 </section>
 @endsection

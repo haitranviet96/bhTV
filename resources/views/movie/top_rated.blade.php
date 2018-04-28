@@ -9,7 +9,10 @@
         @foreach($films as $film)
         <div class="col-sm-6 table-bordered movie-item">
             <div class="col-sm-4">
-                <img src="{{$film['img_path']}}"
+                <img src="@if(isset($film['img_path'])) {{$film['img_path']}}
+                @else
+                <?php echo(URL::asset('assets/movie-placeholder.png')) ?>
+                @endif"
                      alt="{{$film['name']}}" width="140" height="209">
             </div>
             <div class="col-sm-8">
@@ -21,8 +24,10 @@
                     <img title="{{$mat_rate}}" alt="Certificate {{$mat_rate}}"
                          src="<?php echo(URL::asset('assets/' . $mat_rate . '.png')) ?>"/>
                     @endif
+                    @if(isset($film['length']))
                     <time>{{$film['length']}} min</time>
                     <span>-</span>
+                    @endif
                     <?php
                     $genres = $film->genres;
                     foreach ($genres as $genre) {
@@ -36,9 +41,11 @@
                 <div>&nbsp;{{$film['avg_rate']}}/10</div>
                 <p>@if(strlen($film['description'])>200) {{substr($film['description'],0,200)}}...
                     @else {{$film['description']}}@endif</p>
+                @if(isset($film->directors[0]))
                 <h5>Director:
                     <a class="text-primary" href="/people/{{$film->directors[0]['id']}}">
                         {{$film->directors[0]['name']}}</a></h5>
+                @endif
                 <h5>Stars:
                     @php ($i = 0)
                     @foreach ($film->actors as $actor)
@@ -53,6 +60,7 @@
             </div>
         </div>
         @endforeach
+        <div style="width: 50%; margin: 0 auto;">{{ $films->links() }}</div>
     </div>
 </section>
 @endsection

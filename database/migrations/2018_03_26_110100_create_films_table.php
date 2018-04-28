@@ -18,7 +18,7 @@ class CreateFilmsTable extends Migration
             $table->string('name',255);
             $table->date('released_date');
             $table->text('description');
-            $table->string('img_path',255);
+            $table->string('img_path',255)->nullable();
             $table->string('trailer_path',255)->nullable();
             $table->integer('length')->nullable();
             $table->float('avg_rate');

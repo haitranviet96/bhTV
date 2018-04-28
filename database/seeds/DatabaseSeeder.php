@@ -29,7 +29,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
         $res = $this->client->get('genre/movie/list?api_key=' . $this->apiKey . '&language=en-US');
         if ($res->getStatusCode() == 200) {
             $this->genres = json_decode($res->getBody(), true);
@@ -39,29 +38,8 @@ class DatabaseSeeder extends Seeder
                 echo ++$i . "." . $genre['name'] . "\n";
                 // request 2 pages of each genre
                 $res = $this->client->get('genre/' . $genre['id'] . '/movies?api_key=' . $this->apiKey . '&language=en-US&include_adult=true&sort_by=created_at.asc');
-//                    ->then(
-//                        function (Psr\Http\Message\ResponseInterface $res) use ($moviesIDs, $genre) {
                 $this->requestMovies($res, $genre);
-//                        },
-//                        function (GuzzleHttp\Exception\RequestException $e) {
-//                            echo $e->getMessage() . "\n";
-//                            echo $e->getRequest()->getMethod();
-//                        }
-//                    );
-//                $res->wait();
-//                $res = $this->client->getAsync('genre/' . $genre['id'] . '/movies?page=2&api_key=' . $this->apiKey . '&language=en-US&include_adult=true&sort_by=created_at.asc')
-//                    ->then(
-//                        function (Psr\Http\Message\ResponseInterface $res) use ($moviesIDs) {
-//                            $this->requestMovies($res, $moviesIDs);
-//                        },
-//                        function (GuzzleHttp\Exception\RequestException $e) {
-//                            echo $e->getMessage() . "\n";
-//                            echo $e->getRequest()->getMethod();
-//                        }
-//                    );
-//                $res->wait();
             }
-//            echo "Film count : " . count($moviesIDs);
         }
 
         $user = new UserTableSeeder();
@@ -84,8 +62,12 @@ class DatabaseSeeder extends Seeder
                     ->insertGetId(['name' => $genre['name'], 'img_path' => $this->getImgPath(reset($movies['results'])['poster_path'])]);
             foreach ($movies['results'] as $movie) {
                 if (in_array($movie['id'], $this->moviesIDs)) {
+                    echo $movie['title'];
                     $this->movieId = DB::table('films')
-                        ->where('img_path', 'like', '%' . $movie['poster_path'])->value('id');
+                        ->where([
+                            ['name', 'like', $movie['original_title']],
+                            ['released_date', '=', $movie['release_date']],
+                        ])->value('id');
                 } else {
                     array_push($this->moviesIDs, $movie['id']);
                     echo $movie['original_title'] . " [" . $movie['id'] . "]";
@@ -127,8 +109,8 @@ class DatabaseSeeder extends Seeder
             if ($status != 200) echo "Network Error: " . $status . "\n";
         } while ($status != 200);
         $video_results = json_decode($res->getBody(), true)['results'];
-        foreach ($video_results as $video){
-            if($video['type'] == 'Trailer'){
+        foreach ($video_results as $video) {
+            if ($video['type'] == 'Trailer') {
                 $trailer_key = $video['key'];
                 break;
             }
@@ -137,13 +119,15 @@ class DatabaseSeeder extends Seeder
         // add movie
         foreach ($release_results as $result) {
             if ($result['iso_3166_1'] == "US") {
-                $mat_rate = $result['release_dates'][0]['certification'];
+                $mat_rate = in_array($result['release_dates'][0]['certification'], array("PG-13", "R", "PG", "G")) ?
+                    $result['release_dates'][0]['certification'] : NULL;
                 $movieNewId = DB::table('films')
                     ->insertGetId(['name' => $movieDetail['original_title'],
                         'released_date' => $movieDetail['release_date'],
                         'description' => $movieDetail['overview'],
-                        'img_path' => $this->getImgPath($movieDetail['poster_path']),
-                        'trailer_path' =>isset($trailer_key) ? $this->getTrailerPath($trailer_key) : NULL,
+                        'img_path' => $movieDetail['poster_path'] != NULL ?
+                            $this->getImgPath($movieDetail['poster_path']) : NULL,
+                        'trailer_path' => isset($trailer_key) ? $this->getTrailerPath($trailer_key) : NULL,
                         'length' => $movieDetail['runtime'],
                         'avg_rate' => $movieDetail['vote_average'],
                         'mat_rate' => $mat_rate,
@@ -189,7 +173,7 @@ class DatabaseSeeder extends Seeder
             DB::table('actor_film')
                 ->insert(['film_id' => $this->movieId,
                     'actor_id' => $this->celebId,
-                    'role' => substr($cast['character'],0,254)]);
+                    'role' => substr($cast['character'], 0, 254)]);
         }
         echo "; Director: ";
         foreach ($result['crew'] as $crew) {

@@ -20,7 +20,7 @@ class MovieController extends Controller
      */
     public function popular()
     {
-        $popular_films = Film::orderBy('popular', 'desc')->take(16)->get();
+        $popular_films = Film::orderBy('popular', 'desc')->paginate(16);
         return view('movie/popular')->with(['films' => $popular_films]);
     }
 
@@ -31,7 +31,7 @@ class MovieController extends Controller
      */
     public function topRated()
     {
-        $top_rated_films = Film::orderBy('avg_rate', 'desc')->take(16)->get();
+        $top_rated_films = Film::orderBy('avg_rate', 'desc')->paginate(16);
         return view('movie/top_rated')->with(['films' => $top_rated_films]);
     }
 
@@ -43,7 +43,7 @@ class MovieController extends Controller
     public function upComing()
     {
         $up_coming_films = Film::where('released_date', '>=',date('Y-m-d'))
-        ->orderBy('released_date', 'desc')->take(16)->get();
+        ->orderBy('released_date', 'desc')->paginate(16);
         return view('movie/up_coming')->with(['films' => $up_coming_films]);
     }
 
@@ -55,7 +55,7 @@ class MovieController extends Controller
     public function nowPlaying()
     {
         $now_playing_films = Film::where('released_date', '<',date('Y-m-d'))
-            ->orderBy('released_date', 'desc')->take(16)->get();
+            ->orderBy('released_date', 'desc')->paginate(16);
         return view('movie/now_playing')->with(['films' => $now_playing_films]);
     }
 
