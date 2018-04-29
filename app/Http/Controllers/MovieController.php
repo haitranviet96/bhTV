@@ -87,14 +87,13 @@ class MovieController extends Controller
         $comment_ins = new CommentController();
         $comments_of_film = $comment_ins->getComments($film['id']);
         //get list of actors for film
-        $actor_list_str = "";
+        $actor_list = array();
         $actors = DB::table('actor_film')->where('film_id', $film['id'])->get();
         foreach($actors as $actor){
             $an_actor = Celeb::where('id', '=', $actor->actor_id)->first();
-            $actor_list_str = $actor_list_str.$an_actor->name.", ";
+            array_push($actor_list,$an_actor);
         }
-        $actor_list_str[-2] = ' ';
-        $film['actors'] = $actor_list_str;
+        $film['actors'] = $actor_list;
         return view('movie/film_info')->with(['film' => $film, 'comment_query'=> $comments_of_film]);
         }
 

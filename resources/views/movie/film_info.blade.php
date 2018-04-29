@@ -20,7 +20,9 @@
             </div>
             <div>
                 <p class="highlight_text">Actors:</p>
-                {{$film['actors']}}
+                @foreach ($film['actors'] as $actor)
+                    <a style="color: #0b93d5" href="/people/{{$actor['id']}}">{{$actor['name']}}</a>
+                @endforeach
             </div>
             <div>
                 <p class="highlight_text">Genre:</p>
