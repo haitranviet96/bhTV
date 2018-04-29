@@ -44,3 +44,20 @@
 	position: absolute;
 }
 
+.rating_small {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	float: left;
+}
+.rating_small > span {
+	color: #fff000;
+	display: inline-block;
+	position: relative;
+	width: 1.1em;
+}
+.rating_small > span:hover:before,
+.rating_small > span:hover ~ span:before {
+	content: "\2605";
+	position: absolute;
+}
+

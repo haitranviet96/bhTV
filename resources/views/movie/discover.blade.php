@@ -3,7 +3,8 @@
 @section('title','Discover Movies')
 
 @section('content')
-<section class="bg-primary" id="popular">
+    <link type="text/css" rel="stylesheet" href="{{URL::asset('css/rating-star.css')}}">
+    <section class="bg-primary" id="popular">
     <div class="container">
         <h2 class="margin-top-1 margin-bottom-1 text-primary">Discover Movies</h2>
         <div class="col-sm-12 margin-bottom-1" style="margin-bottom: 20px">
@@ -66,10 +67,10 @@
                             echo ' | ';
                         echo $genre['name'];
                     } ?></p>
-                <div class="rating">
+                <div class="rating_small" id="rate_box_{{$film['id']}}">
                     @for($i = 0 ; $i < 10 ; $i++)<span>☆</span>@endfor
                 </div>
-                <div>&nbsp;{{$film['avg_rate']}}/10</div>
+                <div>&nbsp;{{$film['avg_point']}}/10</div>
                 <p>@if(strlen($film['description'])>200) {{substr($film['description'],0,200)}}...
                     @else {{$film['description']}}@endif</p>
                 <h5>Director:

@@ -85,8 +85,8 @@
             </div>
         </div>
         <div style="clear:both; width:100%;"></div>
+    </div>
 </section>
-</div>
 <script>
     $(function () {
         var previous_rate = "<?php echo $film['previous_rate'];?>";
