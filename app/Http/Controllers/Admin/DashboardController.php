@@ -15,3 +15,4 @@ class DashboardController
         return view('admin.dashboard');
 
     }
+}
