@@ -67,10 +67,10 @@
                             echo ' | ';
                         echo $genre['name'];
                     } ?></p>
-                <div class="rating_small" id="rate_box_{{$film['id']}}">
-                    @for($i = 0 ; $i < 10 ; $i++)<span>☆</span>@endfor
-                </div>
-                <div>&nbsp;{{$film['avg_point']}}/10</div>
+                {{--<div class="rating_small" id="rate_box_{{$film['id']}}">--}}
+                    {{--@for($i = 0 ; $i < 10 ; $i++)<span>☆</span>@endfor--}}
+                {{--</div>--}}
+                <div>&nbsp;Avarage rating: {{$film['avg_point']}}/10</div>
                 <p>@if(strlen($film['description'])>200) {{substr($film['description'],0,200)}}...
                     @else {{$film['description']}}@endif</p>
                 <h5>Director:

@@ -6,7 +6,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <section class="bg-primary">
     <div class="container">
-        <h2 class="margin-top-1 margin-bottom-1 text-primary">Movie Profile</h2>
+        <h2 class="margin-top-1 margin-bottom-1 text-primary">Actor Profile</h2>
 
         <div style="width: 40%; float:left;">
             <img src="{{$person['img_path']}}" class="img_bio_film">
@@ -25,12 +25,18 @@
                 {{$person['pob']}}
             </div>
             <div>
+                @php
+                    if($person['gender'] == 1)
+                        $gender = "Female";
+                    else
+                        $gender = "Male";
+                @endphp
                 <p class="highlight_text">Gender:</p>
-                {{$person['gender']}}
+                {{$gender}}
             </div>
             <div>
                 <p class="highlight_text">Short Description:</p>
-                <p style="width: 650px">{{$person['bio']}}</p>
+                <p style="width: 650px; text-align: justify">{{$person['bio']}}</p>
 
             </div>
             <div>

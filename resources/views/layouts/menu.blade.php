@@ -93,6 +93,11 @@
     //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     //         }
     //     });
+        $("#search_form").bind("keypress", function(e) {
+            if (e.keyCode == 13) {
+                return false;
+            }
+        });
         $("#searchBox").keyup(function(){
             var query = $("#searchBox").val();
             if(query.length <= 1){

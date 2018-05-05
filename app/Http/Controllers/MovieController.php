@@ -81,7 +81,8 @@ class MovieController extends Controller
                 }
             }
         }
-        $genre_str[-2] = ' ';
+        if(strlen($genre_str) >= 2)
+            $genre_str[-2] = ' ';
         $film['genre']=$genre_str;
         //get comments for that film
         $comment_ins = new CommentController();

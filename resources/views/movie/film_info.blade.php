@@ -21,7 +21,7 @@
             <div>
                 <p class="highlight_text">Actors:</p>
                 @foreach ($film['actors'] as $actor)
-                    <a style="color: #0b93d5" href="/people/{{$actor['id']}}">{{$actor['name']}}</a>
+                    <a style="color: cadetblue" href="/people/{{$actor['id']}}">{{$actor['name']}}</a>
                 @endforeach
             </div>
             <div>
@@ -34,7 +34,7 @@
             </div>
             <div style="width: 70%; float: left">
                 <p class="highlight_text">Short description:</p>
-                <p style="width: 500px">{{$film['description']}}</p>
+                <p style="width: 500px; text-align: justify">{{$film['description']}}</p>
             </div>
             <div style="clear: both">
                 <p class="highlight_text">Length:</p>
