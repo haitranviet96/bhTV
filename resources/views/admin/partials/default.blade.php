@@ -34,11 +34,14 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 
     <![endif]-->
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -72,7 +75,8 @@
 <script src="{{ URL::asset('css/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- Morris.js charts -->
 <script src="{{ URL::asset('css/raphael/raphael.min.js') }}"></script>
-<script src="{{ URL::asset('css/morris.js/morris.min.js') }}"></script>
+
+{{--<script src="{{ URL::asset('css/morris.js/morris.min.js') }}"></script>--}}
 <!-- Sparkline -->
 <script src="{{ URL::asset('css/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
 <!-- jvectormap -->
@@ -94,10 +98,9 @@
 <!-- AdminLTE App -->
 <script src="{{ URL::asset('css/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ URL::asset('css/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ URL::asset('css/dist/js/demo.js') }}"></script>
 <script src="{{ URL::asset('js/admin.js') }}"></script>
-
+@yield('scripts')
 </body>
 </html>
