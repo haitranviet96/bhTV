@@ -174,6 +174,7 @@
                 $('.role'+i).val(role[k]);
             }
         }
+
     };
     $('#editFilmSubmitChange').click(function () {
         var tokenDir = $('#director3').find("ul").text();

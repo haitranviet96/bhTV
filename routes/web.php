@@ -19,9 +19,7 @@ Route::post('/callback', 'CallbackController@handleCallback');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', function(){
-    return view('admin.dashboard');
-})->middleware('admin')->name('adminDashboard');
+Route::get('/admin', 'Admin\DashboardController@index')->middleware('admin')->name('adminDashboard');
 
 Route::get('/admin/tokenInput/celebs','Admin\TokenInput@getCelebs')->name('celebsToken');
 Route::get('/admin/tokenInput/genre','Admin\TokenInput@getGenre')->name('genreToken');
