@@ -101,6 +101,5 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ URL::asset('css/dist/js/demo.js') }}"></script>
 <script src="{{ URL::asset('js/admin.js') }}"></script>
-@yield('scripts')
 </body>
 </html>

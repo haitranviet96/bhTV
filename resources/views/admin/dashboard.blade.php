@@ -64,46 +64,8 @@
             </div>
         </div>
         <!-- /.row -->
-        <!-- Main row -->
-        {{--<div class="row">--}}
-            {{--<section class="col-lg-7 connectedSortable">--}}
-                {{--<!-- Custom tabs (Charts with tabs)-->--}}
-                {{--<div class="nav-tabs-custom">--}}
-                    {{--<!-- Tabs within a box -->--}}
-                    {{--<ul class="nav nav-tabs pull-right">--}}
-                        {{--<li class="pull-left header"><i class="fa fa-inbox"></i> Films</li>--}}
-                    {{--</ul>--}}
-                    {{--<div class="tab-content no-padding">--}}
-                        {{--<!-- Morris chart - Sales -->--}}
-                        {{--<div class="chart" id="films-chart" style="position: relative; height: 300px;"></div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<!-- /.nav-tabs-custom -->--}}
-
-            {{--</section>--}}
-        {{--</div>--}}
-        <!-- /.row (main row) -->
 
     </section>
     <!-- /.content -->
 </div>
 @endsection
-{{--@section('scripts')--}}
-    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>--}}
-
-    {{--<script type="text/javascript">--}}
-        {{--window.onload = function () {--}}
-            {{--var data =  "{{$chartData}}" ;--}}
-            {{--var dataChart = data.replace(/&quot;/g, '"');--}}
-            {{--console.log(dataChart);--}}
-            {{--Morris.Bar({--}}
-                {{--element: 'chart',--}}
-                {{--data: dataChart,--}}
-                {{--xkey: 'year',--}}
-                {{--ykeys: ['count'],--}}
-                {{--labels: ['Films Released'],--}}
-                {{--resize: true--}}
-            {{--});--}}
-        {{--};--}}
-    {{--</script>--}}
-{{--@endsection--}}

@@ -8,14 +8,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\ChartHelpers\FilmsChart;
 
 class DashboardController
 {
-    public function index(FilmsChart $filmsChart)
+    public function index()
     {
-        $chartData = json_encode($filmsChart->chartDataFromAllRecords());
-
-        return view('admin.dashboard')->with(['chartData'=>$chartData]);
+        return view('admin.dashboard');
     }
 }
