@@ -54,6 +54,7 @@ Route::get('/admin/allUsers','Admin\UsersController@index')->name('allUsers');
 Route::get('/search', 'SearchController@test');
 
 Route::get('/discover', 'DiscoverController@index');
+Route::get('/discover/movie', 'DiscoverController@filter');
 
 Route::get('/movie/popular', 'MovieController@popular');
 Route::get('/movie/top_rated', 'MovieController@topRated');

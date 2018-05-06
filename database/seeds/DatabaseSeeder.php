@@ -125,7 +125,7 @@ class DatabaseSeeder extends Seeder
                     ->insertGetId(['name' => $movieDetail['original_title'],
                         'released_date' => $movieDetail['release_date'],
                         'description' => $movieDetail['overview'],
-                        'img_path' => $movieDetail['poster_path'] != NULL ?
+                        'img_path' => isset($movieDetail['poster_path']) ?
                             $this->getImgPath($movieDetail['poster_path']) : NULL,
                         'trailer_path' => isset($trailer_key) ? $this->getTrailerPath($trailer_key) : NULL,
                         'length' => $movieDetail['runtime'],
