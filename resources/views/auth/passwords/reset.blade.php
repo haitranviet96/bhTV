@@ -3,7 +3,7 @@
 @section('title','Reset Password')
 
 @section('content')
-<section class="bg-primary">
+<section class="bg-secondary">
     <div class="container">
         <div class="row justify-content-center">
             <h2 class="margin-top-1 text-primary">Reset Password</h2>

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="bg-primary">
+<section class="bg-secondary">
     <div class="container">
         <div class="row justify-content-center">
             <h2 class="margin-top-1 text-primary">Reset Password</h2>
@@ -22,14 +22,10 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address')
-                                    }}</label>
-
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                           name="email" value="{{ old('email') }}" required>
-
+                                           name="email" placeholder="Email" value="{{ old('email') }}" required>
                                     @if ($errors->has('email'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
