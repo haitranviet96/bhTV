@@ -12,6 +12,10 @@
 
         <div style="width: 40%; float:left;">
             <img src="{{$film['img_path']}}" class="img_bio_film">
+            <a title="Click to add to wishlist" id="addToWishList" class="btn btn-default" style="margin-left: 200px; margin-top: 10px">
+                <input type="hidden" id="film_id" value="{{$film['id']}}">
+                Add to Wishlist
+            </a>
         </div>
         <div style="width: 60%; float:right; ">
             <div>
@@ -87,6 +91,46 @@
             </div>
         </div>
         <div style="clear:both; width:100%;"></div>
+        @if(count($suggest_films) > 0)
+        <div class="films_concern">
+            <p class="fimls_concern_title">
+                May be you are interested?
+            </p>
+            <div class="detail_line"></div>
+            <div class="list_films_concern" id="dtaildkms" style="width: 940px; height: 250px; position: relative; overflow: hidden;">
+                <div class="sl" style="position: absolute; width: 940px; height: 250px; display: block;">
+                    @for($i = 0;$i < 6;$i++)
+                    <div class="film">
+                        <a href="/movie/{{$suggest_films[$i]['id']}}" class="tooltipPLQL">
+                            <img src="{{$suggest_films[$i]['img_path']}}" title="{{$suggest_films[$i]['name']}}" width="134" height="193">
+                        </a>
+                        <a href="/movie/{{$suggest_films[$i]['id']}}" title="{{$suggest_films[$i]['name']}}">
+                            <figcaption>{{$suggest_films[$i]['name']}}</figcaption>
+                        </a>
+                    </div>
+                    @endfor
+                </div>
+                <div class="sl" style="position: absolute; width: 940px; height: 250px;">
+                                @for($i = 6;$i < count($suggest_films);$i++)
+                                <div class="film">
+                                    <a href="/movie/{{$suggest_films[$i]['id']}}" class="tooltipPLQL">
+                                        <img src="{{$suggest_films[$i]['img_path']}}" title="{{$suggest_films[$i]['name']}}" width="134" height="193">
+                                    </a>
+                                    <a href="/movie/{{$suggest_films[$i]['id']}}" title="{{$suggest_films[$i]['name']}}">
+                                        <figcaption>{{$suggest_films[$i]['name']}}</figcaption>
+                                    </a>
+                                </div>
+                                @endfor
+                </div>
+            </div><a href="#" id="fssPlayPause">Play</a><ul id="fssList"><li class="fssLi0 fssActive"><a href="#">1</a></li><li class="fssLi1"><a href="#">2</a></li><li class="fssLi2"><a href="#">3</a></li></ul>
+            <a href="" class="arrow_preview" id="fssPrev"></a>
+            <a href="" class="arrow_next" id="fssNext"></a>
+            <style>
+                #fssList{display: none;}
+                #fssPlayPause{display: none;}
+            </style>
+        </div>
+        @endif
     </div>
 </section>
 <script>
@@ -180,7 +224,12 @@
                     }
                 );
             }
-        })
+        });
+        $('#dtaildkms').fadeSlideShow({
+            width: 940,
+            height:250,
+            interval: 6000
+        });
     });
 </script>
 @endsection

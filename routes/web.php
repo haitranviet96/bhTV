@@ -61,10 +61,15 @@ Route::get('/movie/top_rated', 'MovieController@topRated');
 Route::get('/movie/up_coming', 'MovieController@upComing');
 Route::get('/movie/now_playing', 'MovieController@nowPlaying');
 Route::get('/movie/{id}', 'MovieController@filmInfo');
+Route::get('/movie/wishlist/{id}','MovieController@showWishList');
+Route::get('/movie/wishlist/add','MovieController@addToWishList')->name('addToWishList');
+Route::post('/movie/wishlist/add','MovieController@addToWishList')->name('addToWishList');
+
+Route::get('/movie/wishlist/remove','MovieController@removeFromWishList')->name('removeFromWishList');
+Route::post('/movie/wishlist/remove','MovieController@removeFromWishList')->name('removeFromWishList');
 
 Route::get('/people', 'PeopleController@people');
 Route::get('/people/{id}', 'PeopleController@person_info');
-
 
 Route::get('/rate', 'RatingController@rate');
 

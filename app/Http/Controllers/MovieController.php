@@ -10,6 +10,7 @@ use App\Celeb;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\CommentController;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
@@ -60,6 +61,8 @@ class MovieController extends Controller
     }
 
     public function filmInfo($id){
+        $arr_genre_id = [];
+        $arr_film_id = [];
         $rating = new RatingController();
         $film = Film::where('id', '=', ''.$id.'')->first();
         $date = substr($film['released_date']->toDateTimeString(),0,10);
@@ -79,6 +82,7 @@ class MovieController extends Controller
                     $genre_str = $genre_str.$genre->name.", ";
                 }
             }
+            array_push($arr_genre_id,$genre_id);
         }
         if(strlen($genre_str) >= 2)
             $genre_str[-2] = ' ';
@@ -94,7 +98,54 @@ class MovieController extends Controller
             array_push($actor_list,$an_actor);
         }
         $film['actors'] = $actor_list;
-        return view('movie/film_info')->with(['film' => $film, 'comment_query'=> $comments_of_film]);
+        $films_genre_id = DB::table('genre_film')->select('film_id')->whereIn('genre_id',$arr_genre_id)->inRandomOrder()->take(12)->get();
+        foreach ($films_genre_id as $film_genre_id)
+        {
+            array_push($arr_film_id,$film_genre_id->film_id);
+        }
+        $suggest_films = Film::whereIn('id',$arr_film_id)->get();
+
+        return view('movie/film_info')->with(['film' => $film, 'comment_query'=> $comments_of_film,'suggest_films' => $suggest_films]);
         }
 
+    public function showWishList($id)
+    {
+        $arr_film_id = [];
+        $films_id = DB::table('wishlists')->select('film_id')->where([['user_id',$id]])->get();
+        foreach($films_id as $film_id)
+        {
+            array_push($arr_film_id,$film_id->film_id);
+        }
+        $wishlists = Film::whereIn('id',$arr_film_id)->paginate(5);
+        return view('movie/wishlist')->with(['wishlists'=>$wishlists]);
+    }
+
+    public function addToWishList(Request $request)
+    {
+            $film_id = $request->film_id;
+            $user_id = $request->user_id;
+            if(DB::table('wishlists')->where([['user_id',$user_id],['film_id',$film_id]])->exists())
+            {
+                $command_code = 1;
+                return json_encode($command_code);
+
+            } else {
+                DB::table('wishlists')->insert([
+                    'film_id' => $film_id,
+                    'user_id' => $user_id,
+                ]);
+                $command_code = 2;
+                return json_encode($command_code);
+            }
+
+    }
+
+    public function removeFromWishList(Request $request)
+    {
+        $film_id = $request->film_id;
+        $user_id = $request->user_id;
+        DB::table('wishlists')->where([['user_id',$user_id],['film_id',$film_id]])->delete();
+        $command_code = 1;
+        return json_encode($command_code);
+    }
 }
