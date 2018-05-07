@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Film extends Model
 {
+    public $timestamps = false;
+
     /**
      * The attributes that should be mutated to dates.
      *

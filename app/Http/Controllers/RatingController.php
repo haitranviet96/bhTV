@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Film;
 use Illuminate\Http\Request;
 use Auth;
 use App\Rate;
@@ -50,6 +51,7 @@ class RatingController extends Controller
             $a_rate->rate = $rate_point;
             $a_rate->save();
         }
+        $this->updateNewAvarageRate($film_id);
 //        $rate_found->save();
     }
     public static function getRateInfoOfAFilm($film_id){
@@ -69,5 +71,11 @@ class RatingController extends Controller
             $avg_point_str = '0';
         }
         return ['rate_times' => $rate_times, 'avg_point' => $avg_point_str];
+    }
+    public function updateNewAvarageRate($film_id){
+        $rate_info = $this->getRateInfoOfAFilm($film_id);
+        $film = Film::find($film_id);
+        $film->avg_rate = $rate_info['avg_point'];
+        $film->save();
     }
 }

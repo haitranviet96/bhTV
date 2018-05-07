@@ -46,7 +46,7 @@
             </div>
             <div style="clear: both">
                 <p class="highlight_text">Rate Info:</p>
-                <div id="rate_info">Rated {{$film['avg_point']}} stars out of {{$film['rate_times']}} reviews.
+                <div id="rate_info">Rated {{$film['avg_rate']}} stars out of {{$film['rate_times']}} reviews.
                 </div>
             </div>
             <div class="outter_box">
@@ -140,7 +140,7 @@
                             swal("Good job!", "Thank you for your rating!", "success");
                             $("#rate_info").html("<p>Rated " + return_var.avg_point + " stars out of " + return_var.rate_times + " reviews.</p>");
                             $("#rate_noti").html("<p>You rated this film " + therate + " stars</p>");
-                            console.log(return_var);
+                            // console.log(return_var);
                         }
                     },
                     dataType: 'Json',
@@ -180,8 +180,6 @@
                     }
                 );
             }
-
-
         })
     });
 </script>

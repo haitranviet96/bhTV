@@ -68,7 +68,6 @@ class MovieController extends Controller
         $film['previous_rate'] =  $p; //previous rate of current user
         $rate_info = $rating->getRateInfoOfAFilm($film['id']);
         $film['rate_times'] = $rate_info['rate_times'];
-        $film['avg_point'] = $rate_info['avg_point'];
         $genre_str = "";
         //get all genre of film
         $genre_film = DB::table('genre_film')->where('film_id', $film['id'])->get();
