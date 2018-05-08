@@ -225,6 +225,7 @@
                 );
             }
         });
+
         $('#dtaildkms').fadeSlideShow({
             width: 940,
             height:250,
