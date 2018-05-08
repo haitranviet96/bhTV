@@ -35,7 +35,7 @@
                             echo ' | ';
                         echo $genre['name'];
                     } ?></p>
-                <div>Avarage rating: {{$film['avg_point']}}/10</div>
+                <div>Avarage rating: {{$film['avg_rate']}}/10</div>
                 <p>@if(strlen($film['description'])>200) {{substr($film['description'],0,200)}}...
                     @else {{$film['description']}}@endif</p>
                 @if(isset($film->directors[0]))

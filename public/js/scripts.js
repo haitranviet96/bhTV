@@ -40,7 +40,7 @@
         var film_id = $(this).children('#film_id').val();
         if(user == null)
         {
-            alert("You must login to complete this task!");
+            swal("Sorry!", "Login Required!", "error");
             return;
         } else
             {
@@ -64,17 +64,17 @@
             success:function(response) {
                 if(response == 1)
                 {
-                    alert("The chosen film was already in your WishList!");
+                    swal("Sorry!", "The film chosen is already in your list!", "error");
                 } else if(response == 2)
                 {
-                    alert("The chosen film was successfully added to wishlist!");
+                    swal("Good job!", "Film added!", "success");
                 } else if(typeof response == "undefined")
                 {
-                    alert("Error Undefined response!");
+                    swal("", "Undefined response!", "error");
                 }
             },
             error:function(){
-                alert("Error!!!!");
+                swal("Error", "", "error");
             }
         });
     });
@@ -100,11 +100,11 @@
                     {
                         $(self).parent().parent().hide('slow', function(){ $(self).parent().parent().remove(); });
                     } else {
-                        alert("There was a problem!");
+                        swal("Sorry!", "There was a problem!", "error");
                     }
                 },
                 error: function () {
-                    alert("Delete Error!");
+                    swal("Sorry!", "Deleted Error!", "error");
                 }
             });
         }

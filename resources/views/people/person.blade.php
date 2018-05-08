@@ -6,7 +6,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <section class="bg-primary">
     <div class="container">
-        <h2 class="margin-top-1 margin-bottom-1 text-primary">Actor Profile</h2>
+        <h2 class="margin-top-1 margin-bottom-1 text-primary">Celeblity Profile</h2>
 
         <div style="width: 40%; float:left;">
             <img src="{{$person['img_path']}}" class="img_bio_film">

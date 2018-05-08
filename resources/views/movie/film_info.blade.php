@@ -30,6 +30,12 @@
                 @endforeach
             </div>
             <div>
+                <p class="highlight_text">Directors:</p>
+                @foreach ($film['directors'] as $director)
+                    <a style="color: cadetblue" href="/people/{{$director['id']}}">{{$director['name']}}</a>
+                @endforeach
+            </div>
+            <div>
                 <p class="highlight_text">Genre:</p>
                 {{$film['genre']}}
             </div>

@@ -98,6 +98,15 @@ class MovieController extends Controller
             array_push($actor_list,$an_actor);
         }
         $film['actors'] = $actor_list;
+        //get list of director for film
+        $director_list = array();
+        $directors = DB::table('director_film')->where('film_id', $film['id'])->get();
+        foreach($directors as $director){
+            $an_director = Celeb::where('id', '=', $actor->actor_id)->first();
+            array_push($director_list,$an_director);
+        }
+        $film['directors'] = $director_list;
+
         $films_genre_id = DB::table('genre_film')->select('film_id')->whereIn('genre_id',$arr_genre_id)->inRandomOrder()->take(12)->get();
         foreach ($films_genre_id as $film_genre_id)
         {
