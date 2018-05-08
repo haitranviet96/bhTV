@@ -108,6 +108,10 @@ class MovieController extends Controller
         return view('movie/film_info')->with(['film' => $film, 'comment_query'=> $comments_of_film,'suggest_films' => $suggest_films]);
         }
 
+    /**
+     * Show films in Wishlist
+     * return to view
+     */
     public function showWishList($id)
     {
         $arr_film_id = [];
