@@ -45,7 +45,7 @@
         @if(isset($film['trailer_path']))
         <a href="{{$film['trailer_path']}}" class="btn btn-default">Watch Trailer</a>
         @endif
-        <a title="Click to add to watchlist" id="addToWishList" class="btn btn-default">
+        <a title="Click to add to wishlist" id="addToWishList" class="btn btn-default">
             <input type="hidden" id="film_id" value="{{$film['id']}}">
             Add to Wishlist
         </a>
