@@ -18,7 +18,7 @@
                                  alt="{{$film['name']}}" width="140" height="209">
                         </div>
                         <div class="col-sm-8">
-                            <h4><a title="{{$film['name']}}">{{$film['name']}}</a></h4>
+                            <h4><a title="{{$film['name']}}" href="/movie/{{$film['id']}}">{{$film['name']}}</a></h4>
                             <p>
                                 @if($film['mat_rate'] != "")
                                     @php ($mat_rate = $film['mat_rate'])

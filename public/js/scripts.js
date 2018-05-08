@@ -38,6 +38,7 @@
     
     $('a#addToWishList').bind('click',function () {
         var film_id = $(this).children('#film_id').val();
+        console.log(film_id);
         if(user == null)
         {
             alert("You must login to complete this task!");
@@ -45,6 +46,7 @@
         } else
             {
                 var user_id = user.id;
+                console.log(user_id);
             }
         $.ajaxSetup({
             headers: {

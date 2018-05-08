@@ -42,7 +42,6 @@
     var user = JSON.stringify({!! auth()->user() !!});
     if(typeof user == "undefined")
     {
-        console.log("cax");
         user = null;
     } else {
         user = JSON.parse(user);

@@ -51,7 +51,6 @@
     </div>
 </section>
 @endsection
-
 <script type="text/javascript" charset="utf-8">
     function submitForm(url = '/discover/movie') {
         $.ajax({
