@@ -124,6 +124,10 @@ class MovieController extends Controller
         return view('movie/wishlist')->with(['wishlists'=>$wishlists]);
     }
 
+    /**
+     * Add film to wishlist db
+     * 
+     */
     public function addToWishList(Request $request)
     {
             $film_id = $request->film_id;
