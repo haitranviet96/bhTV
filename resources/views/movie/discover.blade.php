@@ -72,7 +72,7 @@
             $(this).parent('li').addClass('active');
             var page_no = $(this).attr('href').split('page=')[1];
             submitForm('/discover/movie?page=' + page_no);
-            window.history.pushState("", "", url);
+//            window.history.pushState("", "", url);
         });
     };
 

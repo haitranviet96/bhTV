@@ -60,7 +60,7 @@
                 @endforeach
                 @else <h1>No film was added to wishlist!</h1>
                     @endif
-                {{ $wishlists->links() }}
+                <div style="width: 50%; margin: 0 auto;">{{ $wishlists->links() }}</div>
             </div>
 
         </section>
