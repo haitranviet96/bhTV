@@ -1,12 +1,14 @@
 @foreach($films as $film)
 <div class="col-sm-6 table-bordered movie-item">
     <div class="col-sm-4">
+
         <img src="@if(isset($film['img_path'])) {{$film['img_path']}}
                 @else
                 <?php echo(URL::asset('assets/movie-placeholder.png')) ?>
                 @endif"
              alt="{{$film['name']}}" width="140" height="209">
     </div>
+
     <div class="col-sm-8">
         <h4><a title="{{$film['name']}}"
                href="/movie/{{$film['id']}}">{{$film['name']}}</a></h4>
@@ -35,6 +37,7 @@
             <a class="text-primary" href="/people/{{$film->directors[0]['id']}}">
                 {{$film->directors[0]['name']}}</a></h5>
         @endif
+        
         <h5>Stars:
             @php ($i = 0)
             @foreach ($film->actors as $actor)

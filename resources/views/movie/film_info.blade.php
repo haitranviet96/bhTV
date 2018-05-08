@@ -13,6 +13,7 @@
         <div style="width: 40%; float:left;">
             <img src="{{$film['img_path']}}" class="img_bio_film">
         </div>
+
         <div style="width: 60%; float:right; ">
             <div>
                 <p class="highlight_text">Film name:</p>
