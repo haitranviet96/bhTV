@@ -126,7 +126,7 @@ class MovieController extends Controller
 
     /**
      * Add film to wishlist db
-     * 
+     *
      */
     public function addToWishList(Request $request)
     {
@@ -148,6 +148,9 @@ class MovieController extends Controller
 
     }
 
+    /**
+     * Remove film from wishlist db
+     */
     public function removeFromWishList(Request $request)
     {
         $film_id = $request->film_id;
