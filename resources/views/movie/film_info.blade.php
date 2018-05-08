@@ -93,7 +93,7 @@
         </div>
         <div style="clear:both; width:100%;"></div>
         @if(count($suggest_films) > 0)
-        <div class="films_concern">
+        <div class="films_concern" style="margin-top: 50px">
             <p class="fimls_concern_title">
                 May be you are interested?
             </p>
