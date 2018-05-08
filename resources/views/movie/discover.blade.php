@@ -72,7 +72,6 @@
             $(this).parent('li').addClass('active');
             var page_no = $(this).attr('href').split('page=')[1];
             submitForm('/discover/movie?page=' + page_no);
-//            window.history.pushState("", "", url);
         });
     };
 
@@ -80,4 +79,5 @@
         if(window.event && window.event.keyCode === 13) ele.blur();
         return !(window.event && window.event.keyCode === 13);
     }
+
 </script>

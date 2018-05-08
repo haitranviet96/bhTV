@@ -59,3 +59,50 @@
 <p>No results found.</p>
 @endif
 <div style="width: 50%; margin: 0 auto;">{{ $films->links() }}</div>
+<script type="text/javascript">
+    $('a#addToWishList').bind('click',function () {
+        var film_id = $(this).children('#film_id').val();
+        console.log(film_id);
+        if(user == null)
+        {
+            alert("You must login to complete this task!");
+            return;
+        } else
+        {
+            var user_id = user.id;
+            console.log(user_id);
+        }
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: ajaxAddWishList,
+            datatType : 'json',
+            type: 'POST',
+            data: {
+                film_id : film_id,
+                user_id: user_id,
+            },
+            contentType: "application/x-www-form-urlencoded",
+
+            success:function(response) {
+                console.log(response);
+                if(response == 1)
+                {
+                    alert("The chosen film was already in your WishList!");
+                } else if(response == 2)
+                {
+                    alert("The chosen film was successfully added to wishlist!");
+                } else if(typeof response == "undefined")
+                {
+                    alert("Error Undefined response!");
+                }
+            },
+            error:function(){
+                alert("Error!!!!");
+            }
+        });
+    });
+</script>
