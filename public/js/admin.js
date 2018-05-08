@@ -44,8 +44,6 @@
         var length = document.getElementById("inputLength3").value;
         var rate = document.getElementById("inputRate3").value;
         var mat = document.getElementById("inputMat3").value;
-        console.log(casts);
-        console.log(roles);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

@@ -16,8 +16,6 @@ class CreateWishlistsTable extends Migration
         Schema::create('wishlists', function (Blueprint $table) {
             $table->unsignedInteger('film_id');
             $table->unsignedInteger('user_id');
-            $table->integer('status');
-//            $table->timestamps();
             $table->primary(['film_id', 'user_id']);
             $table->foreign('film_id')->references('id')->on('films');
             $table->foreign('user_id')->references('id')->on('users');

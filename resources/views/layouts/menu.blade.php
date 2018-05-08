@@ -22,16 +22,24 @@
                     <li class="discover">
                         <a class="page-scroll" href="/movie/popular">Movies</a>
                         <ul class="sub_menu_discover">
+                            @guest
                             <li><a class="page-scroll" href="/movie/popular">Popular</a></li>
                             <li><a class="page-scroll" href="/movie/top_rated">Top Rated</a></li>
                             <li><a class="page-scroll" href="/movie/up_coming">Upcoming</a></li>
                             <li><a class="page-scroll" href="/movie/now_playing">Now Playing</a></li>
-
+                            @else
+                                <li><a class="page-scroll" href="/movie/popular">Popular</a></li>
+                                <li><a class="page-scroll" href="/movie/top_rated">Top Rated</a></li>
+                                <li><a class="page-scroll" href="/movie/up_coming">Upcoming</a></li>
+                                <li><a class="page-scroll" href="/movie/now_playing">Now Playing</a></li>
+                                <li><a class="page-scroll" href="/movie/wishlist/{{ Auth::user()->id }}">Wishlist</a></li>
+                                @endguest
                         </ul>
                     </li>
                     <li>
                         <a class="page-scroll people" href="/people">People</a>
                     </li>
+
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right ml-auto">
