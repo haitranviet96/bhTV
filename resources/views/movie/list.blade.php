@@ -59,18 +59,17 @@
 <p>No results found.</p>
 @endif
 <div style="width: 50%; margin: 0 auto;">{{ $films->links() }}</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
     $('a#addToWishList').bind('click',function () {
         var film_id = $(this).children('#film_id').val();
-        console.log(film_id);
         if(user == null)
         {
-            alert("You must login to complete this task!");
+            swal("Sorry!", "Login Required!", "error");
             return;
         } else
         {
             var user_id = user.id;
-            console.log(user_id);
         }
         $.ajaxSetup({
             headers: {
@@ -88,20 +87,19 @@
             contentType: "application/x-www-form-urlencoded",
 
             success:function(response) {
-                console.log(response);
                 if(response == 1)
                 {
-                    alert("The chosen film was already in your WishList!");
+                    swal("Sorry!", "The film chosen is already in your list!", "error");
                 } else if(response == 2)
                 {
-                    alert("The chosen film was successfully added to wishlist!");
+                    swal("Good job!", "Film added!", "success");
                 } else if(typeof response == "undefined")
                 {
-                    alert("Error Undefined response!");
+                    swal("", "Undefined response!", "error");
                 }
             },
             error:function(){
-                alert("Error!!!!");
+                swal("Error", "", "error");
             }
         });
     });

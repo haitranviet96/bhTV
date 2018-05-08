@@ -52,6 +52,7 @@
 <script src="{{ URL::asset('js/jquery.easing.min.js') }}"></script>
 <script src="{{ URL::asset('js/fadeSlideShow.js') }}"></script>
 <script src="{{ URL::asset('js/wow.js') }}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="{{ URL::asset('js/scripts.js') }}"></script>
 
 </body>

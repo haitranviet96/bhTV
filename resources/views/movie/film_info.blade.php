@@ -5,7 +5,6 @@
 @section('content')
 <link type="text/css" rel="stylesheet" href="{{URL::asset('css/rating-star.css')}}">
 <link type="text/css" rel="stylesheet" href="{{URL::asset('css/comment.css')}}">
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <section class="bg-primary">
     <div class="container">
         <h2 class="margin-top-1 margin-bottom-1 text-primary">Movie Profile</h2>
